@@ -1,0 +1,74 @@
+* {
+  color: white;
+  font-family: fantasy;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: solid black;
+  height: 100vh;
+  /* background-color: rgb(6,17,52); */
+  background-color: gray;
+}
+
+.player-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+  border: solid black;
+  background-color: rgb(128,127,1);
+}
+
+.main-view, .play-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 60vw;
+  height: 100vh;
+  border: solid black;
+}
+
+.computer-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+  border: solid black;
+  background-color: rgb(128,127,1);
+}
+
+.options-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: inherit;
+}
+
+.classic-game {
+  background-color: rgb(255,234,175);
+  height: 200px;
+  width: 200px;
+}
+
+.unique-game {
+  background-color: rgb(255,234,175);
+  height: 200px;
+  width: 200px;
+}
+
+h1 {
+  font-size: 25pt;
+}
+
+.fighter {
+  height: 250px;
+  width: 250px;
+}
+
+.hidden {
+  display: none;
+}
