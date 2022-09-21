@@ -8,9 +8,28 @@ class Player {
     this.token = token;
     this.wins = wins;
   }
+  
   takeTurn(fighter) {
-    return fighter; 
+    return fighter;
   }
+
+  automatedTurn() {
+    var fighter = randomFighter();
+    if(fighter === 1) {
+      return rock;
+    }
+    else if (fighter === 2) {
+      return paper;
+    } else {
+      return scissors
+    }
+  }
+
+}
+
+function randomFighter() {
+  var fighter = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+  return fighter
 }
 
 // Player methods must include, but are not limited to:
