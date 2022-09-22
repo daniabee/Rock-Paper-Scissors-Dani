@@ -1,17 +1,42 @@
-/* yellow rgb(255,186,38); */
-/* navy blue rgb(6,17,52); */
-/* pink rgb(251,0,82); */
+/* new colors
+mint green rgb(52,181,158);
+lavender rgb(213,168,240);
+pink rgb(242,168,211);
+yellow rgb(227,229,14);
+reddish purple rgb(91,0,95);
+magenta rgb(242,0,80);
+navy blue rgb(6,17,52); */
+
 
 * {
-  color: rgb(255,186,38);
-  font-family: sans-serif;
-  background-color: rgb(6,17,52);
+  color:rgb(6,17,52);
+  text-shadow: 4px 0 black;
+  font-family: 'Open Sans';
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradientBackground 8s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradientBackground {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .main-view, .classic-view, .unique-view {
   display: flex;
   flex-direction: column;
-  width: 60vw;
+  width: 50vw;
   height: 100vh;
   align-items: center;
 }
@@ -21,32 +46,55 @@
   flex-direction: row;
   justify-content: space-around;
   height: 100vh;
-  background-color: rgb(6,17,52);
-}
-
-.player-side, .computer-side, .player-form-side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 20vw;
-  background-color: #979797;
-  border: solid rgb(255,186,38);
 }
 
 .form, .inputs{
-  margin: 10%;
-  margin-top: 20%;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  width: 100%;
+  font-size: 25pt;
   display: flex;
   flex-direction: column;
   text-align:center;
+  background-color:rgb(213,168,240);
+  text-shadow: 3px 0 rgb(6,17,52);
+  border-radius: 50%;
 }
 
 #player-input {
-  margin: 10%;
+  margin-top: 2%;
+  height: 50px;
+  width: 550px;
+  font-size: 25pt;
   text-align: center;
+  align-self: center;
+  color: rgb(227,229,14);
+  text-shadow: 1px 0 rgb(227,229,14);
+  background-color: rgb(6,17,52);
+  border-radius: 3px;
 }
 
-.options-container {
+#submit {
+  margin-top: 3%;
+  height: auto;
+  width: 200px;
+  font-size: 25pt;
+  color: rgb(227,229,14);
+  text-shadow: 1px 0 rgb(227,229,14);
+  background-color: rgb(6,17,52);
+  border: none;
+  border-radius: 3px;
+}
+
+.player-side, .computer-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+}
+
+.options {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -56,10 +104,9 @@
 
 .game-option1, .game-option2 {
   font-size: 25pt;
-  color: rgb(255,186,38);
-  background-color: rgb(6,17,52);
+  color: rgb(6,17,52);
   border: none;
-  text-shadow: none;
+  text-shadow: -4px 0 rgb(251,0,82);
   margin: 5px;
 }
 
@@ -68,61 +115,68 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: rgb(255,186,38);
-  border-radius: 6pt;
+  background-color: rgb(242,168,211);
+  border: solid rgb(242,0,80);
+  border-radius: 100pt;
   height: 200px;
   width: 200px;
 }
 
 .classic-game:hover, .unique-game:hover {
   cursor: pointer;
-  box-shadow: 10px 10px rgb(251,0,82);
+  box-shadow: -5px -10px 10px 10px rgb(251,0,82);
+}
+
+.rock-title, .scissors-title {
+  font-family: 'graffiti font';
+  color: rgb(6,17,52);
+  font-style: normal;
+  letter-spacing: 2px;
+  text-shadow: 6px 0 rgb(6,17,52);
+  background: none;
+}
+
+.paper-title {
+  font-size: 45pt;
+  letter-spacing: 2px;
+  text-shadow: 6px 0 black;
+  color: black;
+}
+
+.rock-title-fight, .scissors-title-fight {
+  text-shadow: 4px 5px #979797;
+  font-family: 'graffiti font';
+  color: rgb(251,0,82);
+  letter-spacing: 2px;
+  text-shadow: 8px 0 rgb(6,17,52);
+  background: none;
 }
 
 h1 {
-  margin-bottom: 1%;
-  font-size: 50pt;
+  margin-top: 20%;
+  font-size: 60pt;
+  background: none;
 }
 
 h2 {
-  margin-top: 28%;
+  margin-top: 10%;
   background: none;
-  color:rgb(6,17,52);
-  text-shadow: 3px 0 rgb(255,186,38);
-  font-size: 30pt;
+  font-size: 35pt;
 }
 
 h3 {
   margin-top: 5%;
   margin-bottom: 5%;
   font-size: 25pt;
+  text-shadow: 3px 0 black;
 }
 
 p {
   color:rgb(6,17,52);
   background: none;
   font-size: 15pt;
+  text-shadow: 2px 0 rgb(6,17,52);
 }
-
-.rock-title, .scissors-title {
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-shadow: 6px 0 #979797;
-
-}
-
-.paper-title {
-  font-weight: 300;
-  color: #979797;
-}
-
-.rock-title-fight, .scissors-title-fight {
-  color: rgb(251,0,82);
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-shadow: 6px 0 #979797;
-}
-
 
 .fighter-container {
   display: flex;
@@ -150,22 +204,22 @@ p {
 
 .fighter:hover {
   cursor: pointer;
-  transform: scale(1.7);
+  transform: scale(2.5);
 }
 
 .fighter-background {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(closest-side, rgb(255,186,38), rgb(251,0,82), #000c51);
-  max-width: 30%;
-  max-height: 50%;
-  -webkit-border-radius: 100%;
+  background-color: rgb(6,17,52);
+  border-radius: 100pt;
+  height: 200px;
+  width: 200px;
   margin: 1%;
 }
 
 .home {
-  margin: 10%;
+  margin-top: 20%;
 }
 
 .fade-in {
