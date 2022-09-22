@@ -1,87 +1,158 @@
+/* yellow rgb(255,186,38); */
+/* navy blue rgb(6,17,52); */
+/* pink rgb(251,0,82); */
+
 * {
-  color: white;
-  font-family: fantasy;
+  color: rgb(255,186,38);
+  font-family: sans-serif;
+  background-color: rgb(6,17,52);
+}
+
+.main-view, .classic-view, .unique-view {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  height: 100vh;
+  align-items: center;
 }
 
 .main-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border: solid black;
   height: 100vh;
-  /* background-color: rgb(6,17,52); */
-  background-color: gray;
+  background-color: rgb(6,17,52);
 }
 
-.player-side {
+.player-side, .computer-side {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 20vw;
-  border: solid black;
-  background-color: rgb(128,127,1);
-}
-
-.main-view, .classic-view, .unique-view {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 60vw;
-  height: 100vh;
-  border: solid black;
-}
-
-.computer-side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 20vw;
-  border: solid black;
-  background-color: rgb(128,127,1);
+  background-color: #979797;
+  border: solid rgb(255,186,38);
 }
 
 .options-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: inherit;
+  margin-top: 10%;
 }
 
-.game-option {
-  color: black;
+.game-option1, .game-option2 {
+  font-size: 25pt;
+  color: rgb(255,186,38);
+  background-color: rgb(6,17,52);
+  border: none;
+  text-shadow: none;
   margin: 5px;
 }
 
-.classic-game {
+.classic-game, .unique-game {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: black;
-  background-color: rgb(255,234,175);
+  background-color: rgb(255,186,38);
+  border-radius: 6pt;
   height: 200px;
   width: 200px;
 }
 
-.unique-game {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font: black;
-  background-color: rgb(255,234,175);
-  height: 200px;
-  width: 200px;
+.classic-game:hover, .unique-game:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px rgb(251,0,82);
 }
 
 h1 {
+  margin-bottom: 1%;
+  font-size: 50pt;
+}
+
+h2 {
+  margin-top: 28%;
+  background: none;
+  color:rgb(6,17,52);
+  text-shadow: 3px 0 rgb(255,186,38);
+  font-size: 30pt;
+}
+
+h3 {
+  margin-top: 5%;
+  margin-bottom: 5%;
   font-size: 25pt;
 }
 
+p {
+  color:rgb(6,17,52);
+  background: none;
+  font-size: 15pt;
+}
+
+.rock-title, .scissors-title {
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 6px 0 #979797;
+
+}
+
+.paper-title {
+  font-weight: 300;
+  color: #979797;
+}
+
+.rock-title-fight, .scissors-title-fight {
+  color: rgb(251,0,82);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 6px 0 #979797;
+}
+
+
+.fighter-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  height: 40%;
+  margin-top: 0%;
+  margin-bottom: 5%;
+}
+
 .fighter {
-  height: 250px;
-  width: 250px;
+  max-width: 80%;
+  height: auto;
+  background: none;
+  transition: transform .2s;
+}
+
+#scissors {
+  margin-bottom: 5%;
+}
+
+.choose-fighter {
+  color: rgb(251,0,82);
+}
+
+.fighter:hover {
+  cursor: pointer;
+  transform: scale(1.7);
+}
+
+.fighter-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(closest-side, rgb(255,186,38), rgb(251,0,82), #000c51);
+  max-width: 30%;
+  max-height: 50%;
+  -webkit-border-radius: 100%;
+  margin: 1%;
+}
+
+.home {
+  margin: 10%;
 }
 
 .hidden {

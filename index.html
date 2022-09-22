@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela Round">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 </head>
   <body>
     <span class = "main-container">
@@ -16,36 +17,54 @@
       </section>
       <section>
         <section class = "main-view">
-          <h1> Rock Paper Scissors </h1>
+          <h1><span class="rock-title">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title">SCISSORS</span></h1>
           <h3> Choose your game! </h3>
           <span class = "options-container">
             <div class = "classic-game">
-              <p class = "game-option"> Play a classic game of Rock Paper Scissors with unique fighters! </p>
+              <h2 class = "game-option1"> CLASSIC </h2>
             </div>
             <div class = "unique-game">
-              <p class = "game-option"> Play a more unique game of Rock Paper Scissors with a twist! </p>
+              <h2 class = "game-option2"> ULTIMATE </h2>
             </div>
           </span>
         </section>
         <section class = "classic-view hidden">
-          <h1> Rock Paper Scissors </h1>
-          <h3> Choose your fighter! </h3>
-          <div>
-            <img class="fighter" src="./imageFolder/rock.png" alt="rock fighter">
-            <img class="fighter" src="./imageFolder/paper.png" alt="paper fighter">
-            <img class="fighter" src="./imageFolder/scissors.png" alt="scissors fighter">
+          <h1><span class="rock-title-fight">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title-fight">SCISSORS</span></h1>
+          <h3 class = "choose-fighter"> Choose your fighter! </h3>
+          <div class = "fighter-container">
+            <div class = "fighter-background">
+              <img class="fighter" id="rock" src="./imageFolder/rock.png" alt="rock fighter">
+            </div>
+            <div class = "fighter-background">
+              <img class="fighter" id="paper" src="./imageFolder/paper.png" alt="paper fighter">
+            </div>
+            <div class = "fighter-background">
+              <img class="fighter" id="scissors" src="./imageFolder/scissors.png" alt="scissors fighter">
+            </div>
           </div>
+          <button class = "home">HOME</button>
         </section>
         <section class = "unique-view hidden">
-          <h1> Rock Paper Scissors </h1>
-          <h3> Choose your fighter! </h3>
-          <div>
-            <!-- image of other thing -->
-            <!-- image of other thing -->
-            <img class="fighter" src="./imageFolder/rock.png" alt="rock fighter">
-            <img class="fighter" src="./imageFolder/paper.png" alt="paper fighter">
-            <img class="fighter" src="./imageFolder/scissors.png" alt="scissors fighter">
+          <h1><span class="rock-title-fight">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title-fight">SCISSORS</span></h1>
+          <h3 class = "choose-fighter"> Choose your fighter! </h3>
+          <div class = "fighter-container">
+            <div class = "fighter-background">
+              <img class="fighter" src="./imageFolder/bomb.png" alt="bomb fighter">
+            </div>
+            <div class = "fighter-background">
+              <img class="fighter" src="./imageFolder/zombie.png" alt="zombie fighter">
+            </div>
+            <div class = "fighter-background">
+              <img class="fighter" src="./imageFolder/rock.png" alt="rock fighter">
+            </div>
+            <div class = "fighter-background">
+              <img class="fighter" src="./imageFolder/paper.png" alt="paper fighter">
+            </div>
+            <div class = "fighter-background">
+              <img class="fighter" src="./imageFolder/scissors.png" alt="scissors fighter">
+            </div>
           </div>
+          <button class = "home">HOME</button>
         </section>
       </section>
       <section class = "computer-side">
