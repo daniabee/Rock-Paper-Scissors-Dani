@@ -8,8 +8,16 @@
 </head>
   <body>
     <span class = "main-container">
-      <section class = "player-side">
-        <h2> Player </h2>
+      <section class = "player-form-side">
+        <form class ="form">
+          <label class= "inputs">ENTER PLAYER NAME
+            <input id="player-input" type="text" required/>
+          </label>
+        </form>
+        <button id="submit">SUBMIT</button>
+      </section>
+      <section class = "player-side hidden">
+        <h2 id="player-name"> Player </h2>
         <p> Number of Wins </p>
         <p>
           0
