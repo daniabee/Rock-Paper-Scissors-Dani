@@ -1,9 +1,12 @@
-var playerForm = document.querySelector('.player-form-side');
+var playerForm = document.querySelector('.form');
 var submitButton = document.querySelector('#submit');
 var playerInput = document.querySelector('#player-input');
 var playerName = document.querySelector('#player-name');
 var playerSide = document.querySelector('.player-side');
-var gameOptions = document.querySelector('.options-container');
+var computerSide = document.querySelector('.computer-side');
+var subTitle = document.querySelectorAll('.options')[0]
+var gameOptions = document.querySelectorAll('.options')[1]
+;
 
 var uniqueGameOption = document.querySelector('.unique-game');
 var classicGameOption = document.querySelector('.classic-game');
@@ -42,12 +45,17 @@ function submitPlayerInfo() {
   } else {
     playerForm.classList.add('hidden');
     playerSide.classList.remove('hidden');
-    playerName.innerText = `${playerInput.value}`;
-    gameOptions.classList.remove('hidden');
+    computerSide.classList.remove('hidden');
+    submitButton.classList.add('hidden');
 
-    player1.name = `${playerInput.value}`;
+    playerName.innerText = `${playerInput.value.toUpperCase()}`;
+    player1.name = `${playerInput.value.toUpperCase()}`;
     player2.name = `Computer`;
     newGame.addPlayers(player1,player2);
+
+    gameOptions.classList.remove('hidden');
+    subTitle.classList.remove('hidden');
+
   }
 }
 

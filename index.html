@@ -4,20 +4,12 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="./styles.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="http://fonts.cdnfonts.com/css/graffiti-font" rel="stylesheet">
   <title>ULTIMATE ROCK PAPER SCISSORS</title>
 </head>
   <body>
-    <span class = "main-container">
-      <section class = "player-form-side">
-        <form class ="form">
-          <label class= "inputs">ENTER PLAYER NAME
-            <input id="player-input" type="text" required/>
-          </label>
-        </form>
-        <button id="submit">SUBMIT</button>
-      </section>
-      <section class = "player-side hidden">
+    <main class = "main-container">
+      <section class = "player-side fade-in hidden">
         <h2 id="player-name"> Player </h2>
         <p> Number of Wins </p>
         <p class ="player-wins">
@@ -27,13 +19,19 @@
       <section>
         <section class = "main-view">
           <h1><span class="rock-title">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title">SCISSORS</span></h1>
-          <h3> Choose your game! </h3>
-          <span class = "options-container fade-in hidden">
+          <h3 class = "options fade-in hidden">Choose your game!</h3>
+          <form class ="form">
+            <label class= "inputs">ENTER PLAYER NAME
+              <input id="player-input" type="text" required/>
+            </label>
+          </form>
+          <button id="submit">SUBMIT</button>
+          <span class = "options fade-in hidden">
             <div class = "classic-game">
-              <h2 class = "game-option1"> CLASSIC </h2>
+              <h2 class = "game-option1">CLASSIC</h2>
             </div>
             <div class = "unique-game">
-              <h2 class = "game-option2"> ULTIMATE </h2>
+              <h2 class = "game-option2">ULTIMATE</h2>
             </div>
           </span>
         </section>
@@ -76,14 +74,14 @@
           <button class = "home">HOME</button>
         </section>
       </section>
-      <section class = "computer-side">
-        <h2> Computer </h2>
+      <section class = "computer-side fade-in hidden">
+        <h2>COMPUTER</h2>
         <p> Number of Wins </p>
         <p class ="computer-wins">
           0
         </p>
       </section>
-    </span>
+    </main>
     <script src="src/main.js"></script>
     <script src="src/player.js"></script>
     <script src="src/game.js"></script>
