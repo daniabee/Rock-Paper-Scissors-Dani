@@ -4,23 +4,17 @@ var playerInput = document.querySelector('#player-input');
 var playerName = document.querySelector('#player-name');
 var playerSide = document.querySelector('.player-side');
 var computerSide = document.querySelector('.computer-side');
-var subTitle = document.querySelectorAll('.options')[0]
-var gameOptions = document.querySelectorAll('.options')[1]
-;
-
+var subTitle = document.querySelectorAll('.options')[0];
+var gameOptions = document.querySelectorAll('.options')[1];
 var uniqueGameOption = document.querySelector('.unique-game');
 var classicGameOption = document.querySelector('.classic-game');
-
 var mainView = document.querySelector('.main-view');
 var classicGameView = document.querySelector('.classic-view');
 var uniqueGameView = document.querySelector('.unique-view');
-
 var homeButton1 = document.querySelectorAll('.home')[0];
 var homeButton2 = document.querySelectorAll('.home')[1];
-
 var fightersClassic = document.querySelectorAll('.fighter-container')[0];
 var fightersUnique = document.querySelectorAll('.fighter-container')[1];
-
 var playerWinCount = document.querySelector('.player-wins');
 var computerWinCount = document.querySelector('.computer-wins');
 
@@ -43,38 +37,37 @@ function submitPlayerInfo() {
       console.error(`${e.name}: ${e.message}`);
     }
   } else {
-    playerForm.classList.add('hidden');
-    playerSide.classList.remove('hidden');
-    computerSide.classList.remove('hidden');
-    submitButton.classList.add('hidden');
+    hide(playerForm);
+    show(playerSide);
+    show(computerSide);
+    hide(submitButton);
 
     playerName.innerText = `${playerInput.value.toUpperCase()}`;
     player1.name = `${playerInput.value.toUpperCase()}`;
     player2.name = `Computer`;
     newGame.addPlayers(player1,player2);
 
-    gameOptions.classList.remove('hidden');
-    subTitle.classList.remove('hidden');
-
+    show(gameOptions);
+    show(subTitle);
   }
 }
 
 function goToClassicView() {
   newGame.chooseGameType('classic');
-  mainView.classList.add('hidden');
-  classicGameView.classList.remove('hidden');
+  hide(mainView);
+  show(classicGameView);
 }
 
 function goToUniqueView() {
   newGame.chooseGameType('unique');
-  mainView.classList.add('hidden');
-  uniqueGameView.classList.remove('hidden');
+  hide(mainView);
+  show(uniqueGameView)
 }
 
 function goHomeView() {
-  classicGameView.classList.add('hidden');
-  uniqueGameView.classList.add('hidden');
-  mainView.classList.remove('hidden');
+  hide(classicGameView);
+  hide(uniqueGameView);
+  show(mainView);
 }
 
 function playClassicGame() {
@@ -87,8 +80,7 @@ function playClassicGame() {
   else if (event.target.classList.contains('scissors')) {
     console.log(newGame.playRoundClassic('scissors'));
   }
-  playerWinCount.innerText = `${newGame.players[0].wins}`
-  computerWinCount.innerText = `${newGame.players[1].wins}`
+  changeWinCountDisplay();
 }
 
 function playUniqueGame() {
@@ -107,6 +99,21 @@ function playUniqueGame() {
   else if (event.target.classList.contains('bomb')) {
     console.log(newGame.playRoundUnique('bomb'));
   }
+  changeWinCountDisplay();
+}
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
+function show(element) {
+  element.classList.remove('hidden');
+}
+function targetContains(thing) {
+  event.target.classList.contains(thing);
+}
+
+function changeWinCountDisplay() {
   playerWinCount.innerText = `${newGame.players[0].wins}`
   computerWinCount.innerText = `${newGame.players[1].wins}`
 }
