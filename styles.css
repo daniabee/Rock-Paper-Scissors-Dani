@@ -10,12 +10,11 @@ navy blue rgb(6,17,52); */
 
 * {
   color:rgb(6,17,52);
-  text-shadow: 4px 0 black;
-  font-family: 'Open Sans';
+  font-family: 'Raleway';
 }
 
 body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background: linear-gradient(-45deg, rgb(238,119,82), rgb(242,0,80), rgb(213,168,240), rgb(52,181,158));
 	background-size: 400% 400%;
 	animation: gradientBackground 8s ease infinite;
 	height: 100vh;
@@ -74,7 +73,7 @@ body {
   border-radius: 3px;
 }
 
-#submit {
+#submit, .home {
   margin-top: 5%;
   height: auto;
   width: 200px;
@@ -86,12 +85,18 @@ body {
   border-radius: 3px;
 }
 
+#submit:hover, .home:hover {
+  cursor: pointer;
+}
+
 .player-side, .computer-side {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(213,168,240);
   width: 20vw;
+  border-radius: 10pt;
 }
 
 .options {
@@ -99,14 +104,14 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   width: inherit;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .game-option1, .game-option2 {
   font-size: 25pt;
   color: rgb(6,17,52);
   border: none;
-  text-shadow: -4px 0 rgb(251,0,82);
+  text-shadow: 3px 0 rgb(251,0,82);
   margin: 5px;
 }
 
@@ -115,68 +120,56 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: rgb(242,168,211);
+  background-color: rgb(227,229,14);
   border: solid rgb(242,0,80);
-  border-radius: 100pt;
+  border-radius: 200pt/ 100pt;
+  width: 400px;
   height: 200px;
-  width: 200px;
 }
 
 .classic-game:hover, .unique-game:hover {
   cursor: pointer;
-  box-shadow: -5px -10px 10px 10px rgb(251,0,82);
+  box-shadow: 5px 10px 10px 10px rgb(251,0,82);
 }
 
-.rock-title, .scissors-title {
-  font-family: 'graffiti font';
-  color: rgb(6,17,52);
-  font-style: normal;
-  letter-spacing: 2px;
-  text-shadow: 6px 0 rgb(6,17,52);
-  background: none;
+.rock-title, .scissors-title, .paper-title {
+  font-size: 100pt;
+  letter-spacing: 3px;
 }
 
 .paper-title {
-  font-size: 45pt;
-  letter-spacing: 2px;
-  text-shadow: 6px 0 black;
-  color: black;
-}
-
-.rock-title-fight, .scissors-title-fight {
-  text-shadow: 4px 5px #979797;
-  font-family: 'graffiti font';
-  color: rgb(251,0,82);
-  letter-spacing: 2px;
-  text-shadow: 8px 0 rgb(6,17,52);
-  background: none;
+  color: rgb(227,229,14);
+  text-shadow: 10px 0 rgb(6,17,52);
 }
 
 h1 {
-  font-weight:900;
+  position: relative;
+  color: rgb(6,17,52);
+  text-shadow: 10px 0 rgb(227,229,14);
   margin-top: 10%;
-  font-size: 60pt;
+  margin-bottom: 1%;
+  font-size: 75pt;
   background: none;
 }
 
 h2 {
-  margin-top: 10%;
+  margin-top: 5%;
   background: none;
   font-size: 35pt;
+  letter-spacing: 3px;
 }
 
 h3 {
-  margin-top: 5%;
   margin-bottom: 5%;
   font-size: 25pt;
-  text-shadow: 3px 0 black;
+  text-shadow: rgb(91,0,95);
+  letter-spacing: 3px;
 }
 
 p {
   color:rgb(6,17,52);
   background: none;
-  font-size: 15pt;
-  text-shadow: 2px 0 rgb(6,17,52);
+  font-size: 20pt;
 }
 
 .fighter-container {
@@ -200,7 +193,7 @@ p {
 }
 
 .choose-fighter {
-  color: rgb(251,0,82);
+  color: rgb(6,17,52);
 }
 
 .fighter:hover {
@@ -212,24 +205,36 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(6,17,52);
-  border-radius: 100pt;
-  height: 200px;
+  background-color: rgb(227,229,14);
+  border: solid rgb(242,0,80);
+  border-radius: 100pt/ 50pt;
   width: 200px;
-  margin: 1%;
+  height: 100px;
+  margin: 2%;
 }
 
-.home {
-  margin-top: 20%;
+.count-animation-classic {
+  height: 40%;
+  width: auto;
+  position: relative;
 }
 
 .fade-in {
-  animation: fadeIn 3s;
+  animation: fadeIn .5s;
 }
 
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+.fade-out {
+  animation: fadeOut 2s;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .hidden {

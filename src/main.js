@@ -17,6 +17,7 @@ var fightersClassic = document.querySelectorAll('.fighter-container')[0];
 var fightersUnique = document.querySelectorAll('.fighter-container')[1];
 var playerWinCount = document.querySelector('.player-wins');
 var computerWinCount = document.querySelector('.computer-wins');
+var animationCountClassic = document.querySelector('.count-animation-classic');
 
 
 //EVENT LISTENERS
@@ -71,6 +72,8 @@ function goHomeView() {
 }
 
 function playClassicGame() {
+  hide(fightersClassic);
+  show(animationCountClassic);
   if (event.target.classList.contains('rock')) {
     console.log(newGame.playRoundClassic('rock'));
   }
@@ -80,10 +83,14 @@ function playClassicGame() {
   else if (event.target.classList.contains('scissors')) {
     console.log(newGame.playRoundClassic('scissors'));
   }
-  changeWinCountDisplay();
+  setTimeout(changeWinCountDisplay, 5000);
+  setTimeout(show, 5600, fightersClassic);
+  setTimeout(hide, 5500, animationCountClassic);
 }
 
 function playUniqueGame() {
+  hide(fightersUnique);
+  show(animationCountUnique);
   if (event.target.classList.contains('rock')) {
     console.log(newGame.playRoundUnique('rock'));
   }
@@ -99,7 +106,7 @@ function playUniqueGame() {
   else if (event.target.classList.contains('bomb')) {
     console.log(newGame.playRoundUnique('bomb'));
   }
-  changeWinCountDisplay();
+  setTimeout(changeWinCountDisplay, 5000);
 }
 
 function hide(element) {
@@ -108,9 +115,6 @@ function hide(element) {
 
 function show(element) {
   element.classList.remove('hidden');
-}
-function targetContains(thing) {
-  event.target.classList.contains(thing);
 }
 
 function changeWinCountDisplay() {
