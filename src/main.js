@@ -4,8 +4,8 @@ var playerInput = document.querySelector('#player-input');
 var playerName = document.querySelector('#player-name');
 var playerSide = document.querySelector('.player-side');
 var computerSide = document.querySelector('.computer-side');
-var subTitle = document.querySelectorAll('.options')[0];
-var gameOptions = document.querySelectorAll('.options')[1];
+var subTitle = document.querySelector('.subtitle')
+var gameOptions = document.querySelector('.options')
 var uniqueGameOption = document.querySelector('.unique-game');
 var classicGameOption = document.querySelector('.classic-game');
 var mainView = document.querySelector('.main-view');
@@ -15,8 +15,8 @@ var homeButton1 = document.querySelectorAll('.home')[0];
 var homeButton2 = document.querySelectorAll('.home')[1];
 var fightersClassic = document.querySelectorAll('.fighter-container')[0];
 var fightersUnique = document.querySelectorAll('.fighter-container')[1];
-var playerWinCount = document.querySelector('.player-wins');
-var computerWinCount = document.querySelector('.computer-wins');
+var playerWinCount = document.querySelector('#player-wins');
+var computerWinCount = document.querySelector('#computer-wins');
 var animationCountClassic = document.querySelector('.count-animation-classic');
 var animationCountUnique = document.querySelector('.count-animation-unique');
 var outcomeComputerDisplay = document.querySelector('#display-fighter-computer-side');
@@ -30,8 +30,16 @@ playerInput.addEventListener('keydown', function(event) {
     submitPlayerInfo()
   }
 });
-uniqueGameOption.addEventListener('click', goToUniqueView);
-classicGameOption.addEventListener('click', goToClassicView);
+
+gameOptions.addEventListener('click', function(event) {
+  if (event.target.classList.contains('classic-game')) {
+    goToClassicView();
+  }
+  else if(event.target.classList.contains('unique-game')) {
+    goToUniqueView();
+  }
+});
+
 homeButton1.addEventListener('click', goHomeView);
 homeButton2.addEventListener('click', goHomeView);
 fightersClassic.addEventListener('click', playClassicGame);

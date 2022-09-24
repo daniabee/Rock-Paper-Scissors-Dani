@@ -12,24 +12,24 @@
       <section class="player-side hidden">
         <h2 id="player-name">Player</h2>
         <p id="player-token">Player 1</p>
-        <p>Number of Wins</p>
-        <p class="player-wins">0</p>
+        <h3>Number of Wins</h3>
+        <p id="player-wins">0</p>
         <h3 class="choice-display fade-in hidden" id="display-fighter-player-side">YOUR FIGHTER CHOICE</h2>
       </section>
       <section>
         <section class="main-view fade-in">
           <h1><span class="rock-title">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title">SCISSORS</span></h1>
-          <h3 class="options hidden">Choose your game!</h3>
+          <h3 class="subtitle hidden">Choose your game!</h3>
           <form class="form">
             <label class="inputs">ENTER PLAYER NAME<input id="player-input" type="text" required/></label>
           </form>
-          <button id="submit">SUBMIT</button>
+          <button class="submit" id="submit">SUBMIT</button>
           <span class="options hidden">
             <div class="classic-game">
-              <h2 class="game-option1">CLASSIC</h2>
+              <h2 class="classic-game game-option1">CLASSIC</h2>
             </div>
             <div class="unique-game">
-              <h2 class="game-option2">ULTIMATE</h2>
+              <h2 class="unique-game game-option2">ULTIMATE</h2>
             </div>
           </span>
           <button class="reset-game hidden">RESET</button>
@@ -92,9 +92,9 @@
       <section class="computer-side hidden">
         <h2>COMPUTER</h2>
         <p> Player 2 </p>
-        <p> Number of Wins </p>
-        <p class="computer-wins">0</p>
-        <h3 class="choice-display fade-in hidden" id="display-fighter-computer-side">COMPUTER FIGHTER CHOICE</h2>
+        <h3> Number of Wins </h3>
+        <p id="computer-wins">0</p>
+        <h3 class="choice-display fade-in hidden" id="display-fighter-computer-side">COMPUTER FIGHTER CHOICE</h3>
       </section>
     </main>
     <script src="src/game.js"></script>
