@@ -5,8 +5,8 @@ var zombie = 'zombie';
 var bomb = 'bomb';
 
 class Player {
-  constructor(token){
-    this.name = 'none';
+  constructor(name, token){
+    this.name = name;
     this.token = token;
     this.wins = 0;
   }
@@ -52,8 +52,8 @@ function randomFighter(max, min) {
   return fighter
 }
 
-var player1 = new Player('✨');
-var player2 = new Player('💻');
+var player1 = new Player();
+var player2 = new Player();
 
 // Player methods must include, but are not limited to:
 // constructor - properties should include: name (ex: 'Human'), token (ex: '👩🏻'), wins (ex: 0)
