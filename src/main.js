@@ -4,8 +4,8 @@ var playerInput = document.querySelector('#player-input');
 var playerName = document.querySelector('#player-name');
 var playerSide = document.querySelector('.player-side');
 var computerSide = document.querySelector('.computer-side');
-var subTitle = document.querySelectorAll('.options')[0];
-var gameOptions = document.querySelectorAll('.options')[1];
+var subTitle = document.querySelector('.subtitle')
+var gameOptions = document.querySelector('.options')
 var uniqueGameOption = document.querySelector('.unique-game');
 var classicGameOption = document.querySelector('.classic-game');
 var mainView = document.querySelector('.main-view');
@@ -15,18 +15,32 @@ var homeButton1 = document.querySelectorAll('.home')[0];
 var homeButton2 = document.querySelectorAll('.home')[1];
 var fightersClassic = document.querySelectorAll('.fighter-container')[0];
 var fightersUnique = document.querySelectorAll('.fighter-container')[1];
-var playerWinCount = document.querySelector('.player-wins');
-var computerWinCount = document.querySelector('.computer-wins');
+var playerWinCount = document.querySelector('#player-wins');
+var computerWinCount = document.querySelector('#computer-wins');
 var animationCountClassic = document.querySelector('.count-animation-classic');
 var animationCountUnique = document.querySelector('.count-animation-unique');
 var outcomeComputerDisplay = document.querySelector('#display-fighter-computer-side');
 var outcomePlayerDisplay = document.querySelector('#display-fighter-player-side');
 var resetButton = document.querySelector('.reset-game');
+var instructionsUnique = document.querySelector('#instructions1');
 
 //EVENT LISTENERS
 submitButton.addEventListener('click', submitPlayerInfo);
-uniqueGameOption.addEventListener('click', goToUniqueView);
-classicGameOption.addEventListener('click', goToClassicView);
+playerInput.addEventListener('keydown', function(event) {
+  if (event.key === "Shift") {
+    submitPlayerInfo()
+  }
+});
+
+gameOptions.addEventListener('click', function(event) {
+  if (event.target.classList.contains('classic-game')) {
+    goToClassicView();
+  }
+  else if(event.target.classList.contains('unique-game')) {
+    goToUniqueView();
+  }
+});
+
 homeButton1.addEventListener('click', goHomeView);
 homeButton2.addEventListener('click', goHomeView);
 fightersClassic.addEventListener('click', playClassicGame);
@@ -47,16 +61,17 @@ function submitPlayerInfo() {
     show(computerSide);
     hide(submitButton);
 
-    playerName.innerText = `${playerInput.value.toUpperCase()}`;
-    player1.name = `${playerInput.value.toUpperCase()}`;
-    player1.token = 'Player 1';
-    player2.name = `Computer`;
-    player2.token = 'Player 2';
+    player1.resetPayer(`${playerInput.value}`, 'Player 1')
+    player2.resetPayer('Computer', 'Player 2')
     gameData.addPlayers(player1,player2);
+
+    changeInnertext(playerName, player1.name.toUpperCase())
 
     show(gameOptions);
     show(subTitle);
     show(resetButton);
+
+    changeWinCountDisplay();
   }
 }
 
@@ -73,16 +88,16 @@ function goToUniqueView() {
 }
 
 function goHomeView() {
-  hide(outcomePlayerDisplay);
-  hide(outcomeComputerDisplay);
+  hideTemporarily(outcomePlayerDisplay);
+  hideTemporarily(outcomeComputerDisplay);
   hide(classicGameView);
   hide(uniqueGameView);
   show(mainView);
 }
 
 function playClassicGame() {
-  hide(outcomePlayerDisplay);
-  hide(outcomeComputerDisplay);
+  hideTemporarily(outcomePlayerDisplay);
+  hideTemporarily(outcomeComputerDisplay);
   hide(fightersClassic);
   show(animationCountClassic);
   var outcome;
@@ -96,19 +111,21 @@ function playClassicGame() {
   else if (event.target.classList.contains('scissors')) {
     outcome = gameData.playRoundClassic('scissors');
   }
-  outcomePlayerDisplay.innerText = `${outcome.toUpperCase()}`;
-  outcomeComputerDisplay.innerText = `${outcome.toUpperCase()}`;
 
-  setTimeout(show, 5000, outcomePlayerDisplay);
-  setTimeout(show, 5000, outcomeComputerDisplay);
+  changeInnertext(outcomePlayerDisplay, outcome.toUpperCase());
+  changeInnertext(outcomeComputerDisplay, outcome.toUpperCase());
+
+  setTimeout(showTemporarily, 5000, outcomePlayerDisplay);
+  setTimeout(showTemporarily, 5000, outcomeComputerDisplay);
   setTimeout(changeWinCountDisplay, 5000);
   setTimeout(show, 5100, fightersClassic);
   setTimeout(hide, 5100, animationCountClassic);
 }
 
 function playUniqueGame() {
-  hide(outcomePlayerDisplay);
-  hide(outcomeComputerDisplay);
+  hide(instructionsUnique);
+  hideTemporarily(outcomePlayerDisplay);
+  hideTemporarily(outcomeComputerDisplay);
   hide(fightersUnique);
   show(animationCountUnique);
   var outcome;
@@ -129,14 +146,13 @@ function playUniqueGame() {
     outcome = gameData.playRoundUnique('bomb')
   }
 
-  outcome = outcome.toUpperCase();
+  changeInnertext(outcomePlayerDisplay, outcome.toUpperCase());
+  changeInnertext(outcomeComputerDisplay, outcome.toUpperCase());
 
-  outcomePlayerDisplay.innerText = `${outcome}`;
-  outcomeComputerDisplay.innerText = `${outcome}`;
-
-  setTimeout(show, 5000, outcomePlayerDisplay);
-  setTimeout(show, 5000, outcomeComputerDisplay);
+  setTimeout(showTemporarily, 5000, outcomePlayerDisplay);
+  setTimeout(showTemporarily, 5000, outcomeComputerDisplay);
   setTimeout(changeWinCountDisplay, 5000);
+  setTimeout(show, 5100, instructionsUnique);
   setTimeout(show, 5100, fightersUnique);
   setTimeout(hide, 5100, animationCountUnique);
 }
@@ -151,12 +167,18 @@ function resetGame() {
   hide(subTitle);
   hide(resetButton);
   playerInput.value = '';
-  playerWinCount.innerText = '0'
-  computerWinCount.innerText = '0'
 }
 
 function hide(element) {
   element.classList.add('hidden');
+}
+
+function hideTemporarily(element) {
+  element.classList.add('temporary-hidden');
+}
+
+function showTemporarily(element) {
+  element.classList.remove('temporary-hidden');
 }
 
 function show(element) {
@@ -164,6 +186,10 @@ function show(element) {
 }
 
 function changeWinCountDisplay() {
-  playerWinCount.innerText = `${gameData.players[0].wins}`
-  computerWinCount.innerText = `${gameData.players[1].wins}`
+  changeInnertext(playerWinCount, gameData.players[0].wins);
+  changeInnertext(computerWinCount, gameData.players[1].wins)
+}
+
+function changeInnertext(elementChange, text) {
+  elementChange.innerText = `${text}`
 }

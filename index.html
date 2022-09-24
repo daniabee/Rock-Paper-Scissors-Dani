@@ -8,88 +8,93 @@
   <title>ULTIMATE ROCK PAPER SCISSORS</title>
 </head>
   <body>
-    <main class = "main-container">
-      <section class = "player-side hidden">
-        <h2 id="player-name"> Player </h2>
-        <p id="player-token"> Player 1 </p>
-        <p> Number of Wins </p>
-        <p class ="player-wins">
-          0
-        </p>
-        <h3 class="choice-display fade-in hidden" id="display-fighter-player-side">YOUR FIGHTER CHOICE</h2>
+    <main class="main-container">
+      <section class="player-side hidden">
+        <h2 id="player-name">Player</h2>
+        <p id="player-token">Player 1</p>
+        <h3>Number of Wins</h3>
+        <p id="player-wins">0</p>
+        <h3 class="choice-display fade-in temporary-hidden" id="display-fighter-player-side">YOUR FIGHTER CHOICE</h2>
       </section>
       <section>
-        <section class = "main-view fade-in">
+        <section class="main-view fade-in">
           <h1><span class="rock-title">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title">SCISSORS</span></h1>
-          <h3 class = "options hidden">Choose your game!</h3>
-          <form class ="form">
-            <label class= "inputs">ENTER PLAYER NAME
-              <input id="player-input" type="text" required/>
-            </label>
+          <h3 class="subtitle hidden">Choose your game!</h3>
+          <form class="form">
+            <label class="inputs">ENTER PLAYER NAME<input id="player-input" type="text" required/></label>
           </form>
-          <button id="submit">SUBMIT</button>
-          <span class = "options hidden">
-            <div class = "classic-game">
-              <h2 class = "game-option1">CLASSIC</h2>
+          <button class="submit" id="submit">SUBMIT</button>
+          <span class="options hidden">
+            <div class="classic-game">
+              <h2 class="classic-game game-option1">CLASSIC</h2>
             </div>
-            <div class = "unique-game">
-              <h2 class = "game-option2">ULTIMATE</h2>
+            <div class="unique-game">
+              <h2 class="unique-game game-option2">ULTIMATE</h2>
             </div>
           </span>
           <button class="reset-game hidden">RESET</button>
         </section>
-        <section class = "classic-view hidden">
+        <section class="classic-view hidden">
           <h1><span class="rock-title">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title">SCISSORS</span></h1>
-          <h3 class = "choose-fighter"> Choose your fighter! </h3>
-          <div class = "fighter-container fade-in">
-            <div class = "fighter-background">
+          <h3 class="choose-fighter">Choose your fighter!</h3>
+          <p>Rock crushes scissors; paper covers rock; and scissors cuts paper!</p>
+          <div class="fighter-container fade-in">
+            <div class="fighter-background">
               <img class="rock fighter" id="rock" src="./imageFolder/rock.png" alt="rock fighter">
             </div>
-            <div class = "fighter-background">
+            <div class="fighter-background">
               <img class="paper fighter" id="paper" src="./imageFolder/paper.png" alt="paper fighter">
             </div>
-            <div class = "fighter-background">
+            <div class="fighter-background">
               <img class="scissors fighter" id="scissors" src="./imageFolder/scissors.png" alt="scissors fighter">
             </div>
           </div>
-          <img class='count-animation-classic hidden' src='./imageFolder/animation.gif' alt="rock paper scissors shoot!">
-          <h1 class = 'player2-wins hidden'>WINNER!</h1>
-          <h1 class = 'player2-loses hidden'>LOSER!</h1>
-          <h1 class = 'tied hidden'>TIE!</h1>
-          <button class = "home">HOME</button>
+          <img class="count-animation-classic fade-in hidden" src="./imageFolder/animation.gif" alt="rock paper scissors shoot!">
+          <h1 class="player2-wins hidden">WINNER!</h1>
+          <h1 class="player2-loses hidden">LOSER!</h1>
+          <h1 class="tied hidden">TIE!</h1>
+          <button class="home" id='home-classic'>HOME</button>
         </section>
-        <section class = "unique-view hidden">
+        <section class="unique-view hidden">
           <h1><span class="rock-title">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title">SCISSORS</span></h1>
-          <h3 class = "choose-fighter fade-in"> Choose your fighter! </h3>
-          <div class = "fighter-container">
-            <div class = "fighter-background">
+          <h3 class="choose-fighter fade-in">Choose your fighter!</h3>
+          <p class="instructions fade-in" id="instructions1"> Scissors cuts paper;
+            paper covers rock;
+            rock crushes zombie;
+            zombie survives bomb;
+            bomb destroys scissors;
+            scissors decapitates zombie;
+            zombie eats paper;
+            paper warns about bomb;
+            bomb vaporizes rock;
+            rock crushes scissors!</p>
+          <div class="fighter-container fade-in">
+            <div class="fighter-background">
               <img class="bomb fighter" src="./imageFolder/bomb.png" alt="bomb fighter">
             </div>
-            <div class = "fighter-background">
+            <div class="fighter-background">
               <img class="zombie fighter" src="./imageFolder/zombie.png" alt="zombie fighter">
             </div>
-            <div class = "fighter-background">
+            <div class="fighter-background">
               <img class="rock fighter" src="./imageFolder/rock.png" alt="rock fighter">
             </div>
-            <div class = "fighter-background">
+            <div class="fighter-background">
               <img class="paper fighter" src="./imageFolder/paper.png" alt="paper fighter">
             </div>
-            <div class = "fighter-background">
+            <div class="fighter-background">
               <img class="scissors fighter" src="./imageFolder/scissors.png" alt="scissors fighter">
             </div>
           </div>
-          <img class='count-animation-unique hidden' id="unique-animation" src='./imageFolder/animation.gif' alt="rock paper scissors shoot!">
-          <button class = "home">HOME</button>
+          <img class="count-animation-unique fade-in hidden" id="unique-animation" src="./imageFolder/animation.gif" alt="rock paper scissors shoot!">
+          <button class="home">HOME</button>
         </section>
       </section>
-      <section class = "computer-side hidden">
+      <section class="computer-side hidden">
         <h2>COMPUTER</h2>
         <p> Player 2 </p>
-        <p> Number of Wins </p>
-        <p class ="computer-wins">
-          0
-        </p>
-        <h3 class="choice-display fade-in hidden" id="display-fighter-computer-side">COMPUTER FIGHTER CHOICE</h2>
+        <h3> Number of Wins </h3>
+        <p id="computer-wins">0</p>
+        <h3 class="choice-display fade-in temporary-hidden" id="display-fighter-computer-side">COMPUTER FIGHTER CHOICE</h3>
       </section>
     </main>
     <script src="src/game.js"></script>
