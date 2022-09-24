@@ -27,41 +27,45 @@ class Game {
     this.gameCountClassic++;
     var player1Fighter = this.players[0].takeTurn(fighter);
     var player2Fighter = this.players[1].automatedTurnClassic();
+    var outcome;
+    console.log('player 1', player1Fighter);
+    console.log('player 2', player2Fighter);
 
     if (player1Fighter === player2Fighter) {
       this.gameHistory.push(0);
-      return 'You tied!'
+      outcome = 'You tied!';
     }
     else if (player1Fighter === 'rock' && player2Fighter === 'scissors') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'rock' && player1Fighter === 'scissors') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
     else if (player1Fighter === 'paper' && player2Fighter === 'rock') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'paper' && player1Fighter === 'rock') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
     else if (player1Fighter === 'scissors' && player2Fighter === 'paper') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'scissors' && player1Fighter === 'paper') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
+    return `It's ${player1Fighter} VS. ${player2Fighter}! ${outcome}!`;
   }
 
   playRoundUnique(fighter) {
@@ -69,111 +73,113 @@ class Game {
     this.gameCountUnique++;
     var player1Fighter = this.players[0].takeTurn(fighter);
     var player2Fighter = this.players[1].automatedTurnUnique();
+    var outcome;
 
     if (player1Fighter === player2Fighter) {
       this.gameHistory.push(0);
-      return 'You tied!'
+      outcome = 'You tied!'
     }
     else if (player1Fighter === 'scissors' && player2Fighter === 'paper') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'scissors' && player1Fighter === 'paper') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
     else if (player1Fighter === 'paper' && player2Fighter === 'rock') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'paper' && player1Fighter === 'rock') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
     else if (player1Fighter === 'rock' && player2Fighter === 'zombie') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'rock' && player1Fighter === 'zombie') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
     else if (player1Fighter === 'zombie' && player2Fighter === 'bomb') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'zombie' && player1Fighter === 'bomb') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
     else if (player1Fighter === 'bomb' && player2Fighter === 'scissors') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'bomb' && player1Fighter === 'scissors') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
     else if (player1Fighter === 'scissors' && player2Fighter === 'zombie') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'scissors' && player1Fighter === 'zombie') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
     else if (player1Fighter === 'zombie' && player2Fighter === 'paper') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'zombie' && player1Fighter === 'paper') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
     else if (player1Fighter === 'paper' && player2Fighter === 'bomb') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'paper' && player1Fighter === 'bomb') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
     else if (player1Fighter === 'bomb' && player2Fighter === 'rock') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'bomb' && player1Fighter === 'rock') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
     else if (player1Fighter === 'rock' && player2Fighter === 'scissors') {
       this.gameHistory.push(1);
       this.players[0].wins += 1;
-      return 'Player one wins!'
+      outcome = 'Player one wins!'
     }
     else if (player2Fighter === 'rock' && player1Fighter === 'scissors') {
       this.gameHistory.push(2);
       this.players[1].wins += 1;
-      return 'Player two wins!'
+      outcome = 'Player two wins!'
     }
+    return `It's ${player1Fighter} VS. ${player2Fighter}! ${outcome}!`;
   }
 
   gameReset() {

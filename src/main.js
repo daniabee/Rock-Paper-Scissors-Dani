@@ -18,7 +18,9 @@ var fightersUnique = document.querySelectorAll('.fighter-container')[1];
 var playerWinCount = document.querySelector('.player-wins');
 var computerWinCount = document.querySelector('.computer-wins');
 var animationCountClassic = document.querySelector('.count-animation-classic');
-
+var animationCountUnique = document.querySelector('.count-animation-unique');
+var outcomeComputerDisplay = document.querySelector('#display-fighter-computer-side');
+var outcomePlayerDisplay = document.querySelector('#display-fighter-player-side');
 
 //EVENT LISTENERS
 submitButton.addEventListener('click', submitPlayerInfo);
@@ -45,7 +47,9 @@ function submitPlayerInfo() {
 
     playerName.innerText = `${playerInput.value.toUpperCase()}`;
     player1.name = `${playerInput.value.toUpperCase()}`;
+    player1.token = 'Player 1';
     player2.name = `Computer`;
+    player2.token = 'Player 2';
     newGame.addPlayers(player1,player2);
 
     show(gameOptions);
@@ -66,47 +70,68 @@ function goToUniqueView() {
 }
 
 function goHomeView() {
+  hide(outcomePlayerDisplay);
+  hide(outcomeComputerDisplay);
   hide(classicGameView);
   hide(uniqueGameView);
   show(mainView);
 }
 
 function playClassicGame() {
+  hide(outcomePlayerDisplay);
+  hide(outcomeComputerDisplay);
   hide(fightersClassic);
   show(animationCountClassic);
+  var outcome;
   if (event.target.classList.contains('rock')) {
-    console.log(newGame.playRoundClassic('rock'));
+    outcome = newGame.playRoundClassic('rock');
   }
   else if (event.target.classList.contains('paper')) {
-    console.log(newGame.playRoundClassic('paper'));
+    outcome = newGame.playRoundClassic('paper');
   }
   else if (event.target.classList.contains('scissors')) {
-    console.log(newGame.playRoundClassic('scissors'));
+    outcome = newGame.playRoundClassic('scissors');
   }
+  outcomePlayerDisplay.innerText = `${outcome.toUpperCase()}`;
+  outcomeComputerDisplay.innerText = `${outcome.toUpperCase()}`;
+
+  setTimeout(show, 5000, outcomePlayerDisplay);
+  setTimeout(show, 5000, outcomeComputerDisplay);
   setTimeout(changeWinCountDisplay, 5000);
-  setTimeout(show, 5600, fightersClassic);
-  setTimeout(hide, 5500, animationCountClassic);
+  setTimeout(show, 5100, fightersClassic);
+  setTimeout(hide, 5100, animationCountClassic);
 }
 
 function playUniqueGame() {
+  hide(outcomePlayerDisplay);
+  hide(outcomeComputerDisplay);
   hide(fightersUnique);
   show(animationCountUnique);
+  var outcome;
+
   if (event.target.classList.contains('rock')) {
-    console.log(newGame.playRoundUnique('rock'));
+    outcome = newGame.playRoundUnique('rock')
   }
   else if (event.target.classList.contains('paper')) {
-    console.log(newGame.playRoundUnique('paper'));
+    outcome = newGame.playRoundUnique('paper')
   }
   else if (event.target.classList.contains('scissors')) {
-    console.log(newGame.playRoundUnique('scissors'));
+    outcome = newGame.playRoundUnique('scissors')
   }
   else if (event.target.classList.contains('zombie')) {
-    console.log(newGame.playRoundUnique('zombie'));
+    outcome = newGame.playRoundUnique('zombie')
   }
   else if (event.target.classList.contains('bomb')) {
-    console.log(newGame.playRoundUnique('bomb'));
+    outcome = newGame.playRoundUnique('bomb')
   }
+  outcomePlayerDisplay.innerText = `${outcome.toUpperCase()}`;
+  outcomeComputerDisplay.innerText = `${outcome.toUpperCase()}`;
+
+  setTimeout(show, 5000, outcomePlayerDisplay);
+  setTimeout(show, 5000, outcomeComputerDisplay);
   setTimeout(changeWinCountDisplay, 5000);
+  setTimeout(show, 5100, fightersUnique);
+  setTimeout(hide, 5100, animationCountUnique);
 }
 
 function hide(element) {

@@ -154,6 +154,7 @@ h1 {
 
 h2 {
   margin-top: 5%;
+  margin-bottom: 1%;
   background: none;
   font-size: 35pt;
   letter-spacing: 3px;
@@ -213,14 +214,22 @@ p {
   margin: 2%;
 }
 
-.count-animation-classic {
-  height: 40%;
+.count-animation-classic, .count-animation-unique {
+  height: 30%;
+  margin-bottom: 15%;
   width: auto;
   position: relative;
 }
 
+.choice-display {
+  text-align: center;
+  color: rgb(242,0,80);
+  text-shadow: 2px 0 rgb(227,229,14);
+  margin: 2%;
+}
+
 .fade-in {
-  animation: fadeIn .5s;
+  animation: fadeIn 2s;
 }
 
 @keyframes fadeIn {
