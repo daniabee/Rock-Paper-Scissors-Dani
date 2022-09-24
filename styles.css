@@ -73,7 +73,7 @@ body {
   border-radius: 3px;
 }
 
-#submit, .home {
+#submit, .home, .reset-game {
   margin-top: 5%;
   height: auto;
   width: 200px;
@@ -85,7 +85,7 @@ body {
   border-radius: 3px;
 }
 
-#submit:hover, .home:hover {
+#submit:hover, .home:hover, .reset-game {
   cursor: pointer;
 }
 

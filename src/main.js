@@ -21,6 +21,7 @@ var animationCountClassic = document.querySelector('.count-animation-classic');
 var animationCountUnique = document.querySelector('.count-animation-unique');
 var outcomeComputerDisplay = document.querySelector('#display-fighter-computer-side');
 var outcomePlayerDisplay = document.querySelector('#display-fighter-player-side');
+var resetButton = document.querySelector('.reset-game');
 
 //EVENT LISTENERS
 submitButton.addEventListener('click', submitPlayerInfo);
@@ -30,6 +31,7 @@ homeButton1.addEventListener('click', goHomeView);
 homeButton2.addEventListener('click', goHomeView);
 fightersClassic.addEventListener('click', playClassicGame);
 fightersUnique.addEventListener('click', playUniqueGame);
+resetButton.addEventListener('click', resetGame);
 
 //FUNCTIONS
 function submitPlayerInfo() {
@@ -50,21 +52,22 @@ function submitPlayerInfo() {
     player1.token = 'Player 1';
     player2.name = `Computer`;
     player2.token = 'Player 2';
-    newGame.addPlayers(player1,player2);
+    gameData.addPlayers(player1,player2);
 
     show(gameOptions);
     show(subTitle);
+    show(resetButton);
   }
 }
 
 function goToClassicView() {
-  newGame.chooseGameType('classic');
+  gameData.chooseGameType('classic');
   hide(mainView);
   show(classicGameView);
 }
 
 function goToUniqueView() {
-  newGame.chooseGameType('unique');
+  gameData.chooseGameType('unique');
   hide(mainView);
   show(uniqueGameView)
 }
@@ -83,14 +86,15 @@ function playClassicGame() {
   hide(fightersClassic);
   show(animationCountClassic);
   var outcome;
+
   if (event.target.classList.contains('rock')) {
-    outcome = newGame.playRoundClassic('rock');
+    outcome = gameData.playRoundClassic('rock');
   }
   else if (event.target.classList.contains('paper')) {
-    outcome = newGame.playRoundClassic('paper');
+    outcome = gameData.playRoundClassic('paper');
   }
   else if (event.target.classList.contains('scissors')) {
-    outcome = newGame.playRoundClassic('scissors');
+    outcome = gameData.playRoundClassic('scissors');
   }
   outcomePlayerDisplay.innerText = `${outcome.toUpperCase()}`;
   outcomeComputerDisplay.innerText = `${outcome.toUpperCase()}`;
@@ -110,28 +114,45 @@ function playUniqueGame() {
   var outcome;
 
   if (event.target.classList.contains('rock')) {
-    outcome = newGame.playRoundUnique('rock')
+    outcome = gameData.playRoundUnique('rock')
   }
   else if (event.target.classList.contains('paper')) {
-    outcome = newGame.playRoundUnique('paper')
+    outcome = gameData.playRoundUnique('paper')
   }
   else if (event.target.classList.contains('scissors')) {
-    outcome = newGame.playRoundUnique('scissors')
+    outcome = gameData.playRoundUnique('scissors')
   }
   else if (event.target.classList.contains('zombie')) {
-    outcome = newGame.playRoundUnique('zombie')
+    outcome = gameData.playRoundUnique('zombie')
   }
   else if (event.target.classList.contains('bomb')) {
-    outcome = newGame.playRoundUnique('bomb')
+    outcome = gameData.playRoundUnique('bomb')
   }
-  outcomePlayerDisplay.innerText = `${outcome.toUpperCase()}`;
-  outcomeComputerDisplay.innerText = `${outcome.toUpperCase()}`;
+
+  outcome = outcome.toUpperCase();
+
+  outcomePlayerDisplay.innerText = `${outcome}`;
+  outcomeComputerDisplay.innerText = `${outcome}`;
 
   setTimeout(show, 5000, outcomePlayerDisplay);
   setTimeout(show, 5000, outcomeComputerDisplay);
   setTimeout(changeWinCountDisplay, 5000);
   setTimeout(show, 5100, fightersUnique);
   setTimeout(hide, 5100, animationCountUnique);
+}
+
+function resetGame() {
+  gameData.gameReset();
+  show(playerForm);
+  hide(playerSide);
+  hide(computerSide);
+  show(submitButton);
+  hide(gameOptions);
+  hide(subTitle);
+  hide(resetButton);
+  playerInput.value = '';
+  playerWinCount.innerText = '0'
+  computerWinCount.innerText = '0'
 }
 
 function hide(element) {
@@ -143,6 +164,6 @@ function show(element) {
 }
 
 function changeWinCountDisplay() {
-  playerWinCount.innerText = `${newGame.players[0].wins}`
-  computerWinCount.innerText = `${newGame.players[1].wins}`
+  playerWinCount.innerText = `${gameData.players[0].wins}`
+  computerWinCount.innerText = `${gameData.players[1].wins}`
 }

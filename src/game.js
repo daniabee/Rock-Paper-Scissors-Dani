@@ -186,8 +186,10 @@ class Game {
     this.players = [];
     this.gameType = 'none chosen';
     this.gameCount = 0;
+    this.gameCountClassic = 0;
+    this.gameCountUnique = 0;
     this.gameHistory = [];
   }
 };
 
-var newGame = new Game();
+var gameData = new Game();
