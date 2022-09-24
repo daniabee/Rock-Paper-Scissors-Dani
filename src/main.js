@@ -25,6 +25,11 @@ var resetButton = document.querySelector('.reset-game');
 
 //EVENT LISTENERS
 submitButton.addEventListener('click', submitPlayerInfo);
+playerInput.addEventListener('keydown', function(event) {
+  if (event.key === "Shift") {
+    submitPlayerInfo()
+  }
+});
 uniqueGameOption.addEventListener('click', goToUniqueView);
 classicGameOption.addEventListener('click', goToClassicView);
 homeButton1.addEventListener('click', goHomeView);
@@ -47,16 +52,17 @@ function submitPlayerInfo() {
     show(computerSide);
     hide(submitButton);
 
-    playerName.innerText = `${playerInput.value.toUpperCase()}`;
-    player1.name = `${playerInput.value.toUpperCase()}`;
-    player1.token = 'Player 1';
-    player2.name = `Computer`;
-    player2.token = 'Player 2';
+    player1.resetPayer(`${playerInput.value}`, 'Player 1')
+    player2.resetPayer('Computer', 'Player 2')
     gameData.addPlayers(player1,player2);
+
+    changeInnertext(playerName, player1.name.toUpperCase())
 
     show(gameOptions);
     show(subTitle);
     show(resetButton);
+
+    changeWinCountDisplay();
   }
 }
 
@@ -96,8 +102,9 @@ function playClassicGame() {
   else if (event.target.classList.contains('scissors')) {
     outcome = gameData.playRoundClassic('scissors');
   }
-  outcomePlayerDisplay.innerText = `${outcome.toUpperCase()}`;
-  outcomeComputerDisplay.innerText = `${outcome.toUpperCase()}`;
+
+  changeInnertext(outcomePlayerDisplay, outcome.toUpperCase());
+  changeInnertext(outcomeComputerDisplay, outcome.toUpperCase());
 
   setTimeout(show, 5000, outcomePlayerDisplay);
   setTimeout(show, 5000, outcomeComputerDisplay);
@@ -129,10 +136,8 @@ function playUniqueGame() {
     outcome = gameData.playRoundUnique('bomb')
   }
 
-  outcome = outcome.toUpperCase();
-
-  outcomePlayerDisplay.innerText = `${outcome}`;
-  outcomeComputerDisplay.innerText = `${outcome}`;
+  changeInnertext(outcomePlayerDisplay, outcome.toUpperCase());
+  changeInnertext(outcomeComputerDisplay, outcome.toUpperCase());
 
   setTimeout(show, 5000, outcomePlayerDisplay);
   setTimeout(show, 5000, outcomeComputerDisplay);
@@ -151,8 +156,6 @@ function resetGame() {
   hide(subTitle);
   hide(resetButton);
   playerInput.value = '';
-  playerWinCount.innerText = '0'
-  computerWinCount.innerText = '0'
 }
 
 function hide(element) {
@@ -164,6 +167,10 @@ function show(element) {
 }
 
 function changeWinCountDisplay() {
-  playerWinCount.innerText = `${gameData.players[0].wins}`
-  computerWinCount.innerText = `${gameData.players[1].wins}`
+  changeInnertext(playerWinCount, gameData.players[0].wins);
+  changeInnertext(computerWinCount, gameData.players[1].wins)
+}
+
+function changeInnertext(elementChange, text) {
+  elementChange.innerText = `${text}`
 }

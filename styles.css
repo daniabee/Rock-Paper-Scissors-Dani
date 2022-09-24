@@ -85,8 +85,12 @@ body {
   border-radius: 3px;
 }
 
-#submit:hover, .home:hover, .reset-game {
+#submit:hover, .home:hover, .reset-game:hover {
   cursor: pointer;
+}
+
+.reset-game {
+  margin-top: 30%;
 }
 
 .player-side, .computer-side {
@@ -168,6 +172,7 @@ h3 {
 }
 
 p {
+  text-align: center;
   color:rgb(6,17,52);
   background: none;
   font-size: 20pt;
@@ -176,6 +181,7 @@ p {
 .fighter-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-flow: row wrap;
   height: 40%;
   margin-top: 0%;
