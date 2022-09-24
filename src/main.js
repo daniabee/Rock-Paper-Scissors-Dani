@@ -22,6 +22,7 @@ var animationCountUnique = document.querySelector('.count-animation-unique');
 var outcomeComputerDisplay = document.querySelector('#display-fighter-computer-side');
 var outcomePlayerDisplay = document.querySelector('#display-fighter-player-side');
 var resetButton = document.querySelector('.reset-game');
+var instructionsUnique = document.querySelector('#instructions1');
 
 //EVENT LISTENERS
 submitButton.addEventListener('click', submitPlayerInfo);
@@ -87,16 +88,16 @@ function goToUniqueView() {
 }
 
 function goHomeView() {
-  hide(outcomePlayerDisplay);
-  hide(outcomeComputerDisplay);
+  hideTemporarily(outcomePlayerDisplay);
+  hideTemporarily(outcomeComputerDisplay);
   hide(classicGameView);
   hide(uniqueGameView);
   show(mainView);
 }
 
 function playClassicGame() {
-  hide(outcomePlayerDisplay);
-  hide(outcomeComputerDisplay);
+  hideTemporarily(outcomePlayerDisplay);
+  hideTemporarily(outcomeComputerDisplay);
   hide(fightersClassic);
   show(animationCountClassic);
   var outcome;
@@ -114,16 +115,17 @@ function playClassicGame() {
   changeInnertext(outcomePlayerDisplay, outcome.toUpperCase());
   changeInnertext(outcomeComputerDisplay, outcome.toUpperCase());
 
-  setTimeout(show, 5000, outcomePlayerDisplay);
-  setTimeout(show, 5000, outcomeComputerDisplay);
+  setTimeout(showTemporarily, 5000, outcomePlayerDisplay);
+  setTimeout(showTemporarily, 5000, outcomeComputerDisplay);
   setTimeout(changeWinCountDisplay, 5000);
   setTimeout(show, 5100, fightersClassic);
   setTimeout(hide, 5100, animationCountClassic);
 }
 
 function playUniqueGame() {
-  hide(outcomePlayerDisplay);
-  hide(outcomeComputerDisplay);
+  hide(instructionsUnique);
+  hideTemporarily(outcomePlayerDisplay);
+  hideTemporarily(outcomeComputerDisplay);
   hide(fightersUnique);
   show(animationCountUnique);
   var outcome;
@@ -147,9 +149,10 @@ function playUniqueGame() {
   changeInnertext(outcomePlayerDisplay, outcome.toUpperCase());
   changeInnertext(outcomeComputerDisplay, outcome.toUpperCase());
 
-  setTimeout(show, 5000, outcomePlayerDisplay);
-  setTimeout(show, 5000, outcomeComputerDisplay);
+  setTimeout(showTemporarily, 5000, outcomePlayerDisplay);
+  setTimeout(showTemporarily, 5000, outcomeComputerDisplay);
   setTimeout(changeWinCountDisplay, 5000);
+  setTimeout(show, 5100, instructionsUnique);
   setTimeout(show, 5100, fightersUnique);
   setTimeout(hide, 5100, animationCountUnique);
 }
@@ -168,6 +171,14 @@ function resetGame() {
 
 function hide(element) {
   element.classList.add('hidden');
+}
+
+function hideTemporarily(element) {
+  element.classList.add('temporary-hidden');
+}
+
+function showTemporarily(element) {
+  element.classList.remove('temporary-hidden');
 }
 
 function show(element) {

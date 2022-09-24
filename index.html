@@ -14,7 +14,7 @@
         <p id="player-token">Player 1</p>
         <h3>Number of Wins</h3>
         <p id="player-wins">0</p>
-        <h3 class="choice-display fade-in hidden" id="display-fighter-player-side">YOUR FIGHTER CHOICE</h2>
+        <h3 class="choice-display fade-in temporary-hidden" id="display-fighter-player-side">YOUR FIGHTER CHOICE</h2>
       </section>
       <section>
         <section class="main-view fade-in">
@@ -49,26 +49,26 @@
               <img class="scissors fighter" id="scissors" src="./imageFolder/scissors.png" alt="scissors fighter">
             </div>
           </div>
-          <img class="count-animation-classic hidden" src="./imageFolder/animation.gif" alt="rock paper scissors shoot!">
+          <img class="count-animation-classic fade-in hidden" src="./imageFolder/animation.gif" alt="rock paper scissors shoot!">
           <h1 class="player2-wins hidden">WINNER!</h1>
           <h1 class="player2-loses hidden">LOSER!</h1>
           <h1 class="tied hidden">TIE!</h1>
-          <button class="home">HOME</button>
+          <button class="home" id='home-classic'>HOME</button>
         </section>
         <section class="unique-view hidden">
           <h1><span class="rock-title">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title">SCISSORS</span></h1>
           <h3 class="choose-fighter fade-in">Choose your fighter!</h3>
-          <p> Scissors cuts Paper;
-            Paper covers Rock;
-            Rock crushes Zombie;
-            Zombie survives Bomb;
-            Bomb destroys Scissors;
-            Scissors decapitates Zombie;
-            Zombie eats Paper;
-            Paper warns about Bomb;
-            Bomb vaporizes Rock;
-            Rock crushes Scissors!</p>
-          <div class="fighter-container">
+          <p class="instructions fade-in" id="instructions1"> Scissors cuts paper;
+            paper covers rock;
+            rock crushes zombie;
+            zombie survives bomb;
+            bomb destroys scissors;
+            scissors decapitates zombie;
+            zombie eats paper;
+            paper warns about bomb;
+            bomb vaporizes rock;
+            rock crushes scissors!</p>
+          <div class="fighter-container fade-in">
             <div class="fighter-background">
               <img class="bomb fighter" src="./imageFolder/bomb.png" alt="bomb fighter">
             </div>
@@ -85,7 +85,7 @@
               <img class="scissors fighter" src="./imageFolder/scissors.png" alt="scissors fighter">
             </div>
           </div>
-          <img class="count-animation-unique hidden" id="unique-animation" src="./imageFolder/animation.gif" alt="rock paper scissors shoot!">
+          <img class="count-animation-unique fade-in hidden" id="unique-animation" src="./imageFolder/animation.gif" alt="rock paper scissors shoot!">
           <button class="home">HOME</button>
         </section>
       </section>
@@ -94,7 +94,7 @@
         <p> Player 2 </p>
         <h3> Number of Wins </h3>
         <p id="computer-wins">0</p>
-        <h3 class="choice-display fade-in hidden" id="display-fighter-computer-side">COMPUTER FIGHTER CHOICE</h3>
+        <h3 class="choice-display fade-in temporary-hidden" id="display-fighter-computer-side">COMPUTER FIGHTER CHOICE</h3>
       </section>
     </main>
     <script src="src/game.js"></script>

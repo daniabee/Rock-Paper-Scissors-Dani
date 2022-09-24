@@ -35,25 +35,27 @@ h1 {
   position: relative;
   color: rgb(6,17,52);
   text-shadow: 10px 0 rgb(227,229,14);
-  margin-top: 10%;
+  margin-top: 5%;
   margin-bottom: 1%;
 }
 
 h2 {
   letter-spacing: 3px;
-  font-size: 35pt;
+  font-size: 40pt;
+  text-shadow: 3px 0 rgb(227,229,14);
 }
 
 h3 {
   font-size: 25pt;
   letter-spacing: 3px;
+  text-shadow: 3px 0 rgb(227,229,14);
 }
 
 p {
   text-align: center;
   color:rgb(6,17,52);
   background: none;
-  font-size: 20pt;
+  font-size: 18pt;
 }
 
 .rock-title,
@@ -131,11 +133,15 @@ p {
 .classic-game:hover,
 .unique-game:hover {
   cursor: pointer;
-  box-shadow: 2px 2px 10px 5px rgb(251,0,82);
+  box-shadow: 2px 2px 5px 5px rgb(251,0,82);
 }
 
 .reset-game {
-  margin-top: 25%;
+  margin-top: 10%;
+}
+
+#home-classic {
+
 }
 
 .player-side,
@@ -154,7 +160,7 @@ p {
   flex-direction: row;
   justify-content: space-evenly;
   width: inherit;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
 .game-option1,
@@ -183,14 +189,8 @@ p {
   justify-content: center;
   align-items: center;
   flex-flow: row wrap;
-  margin-bottom: 5%;
-}
-
-.fighter {
-  max-width: 80%;
-  height: auto;
-  background: none;
-  transition: transform .2s;
+  margin: 5%;
+  margin-bottom: 0;
 }
 
 #scissors {
@@ -201,9 +201,16 @@ p {
   color: rgb(6,17,52);
 }
 
+.fighter {
+  max-width: 80%;
+  height: auto;
+  background: 0;
+  transition: transform .2s;
+}
+
 .fighter:hover {
   cursor: pointer;
-  transform: scale(2.5);
+  transform: scale(2);
 }
 
 .fighter-background {
@@ -215,13 +222,12 @@ p {
   border-radius: 100pt/ 50pt;
   width: 200px;
   height: 100px;
-  margin: 2%;
+  margin: 3%;
 }
 
 .count-animation-classic,
 .count-animation-unique {
-  height: 30%;
-  margin-bottom: 15%;
+  height: 400px;
   width: auto;
   position: relative;
 }
@@ -253,4 +259,8 @@ p {
 
 .hidden {
   display: none;
+}
+
+.temporary-hidden {
+  visibility: hidden;
 }
