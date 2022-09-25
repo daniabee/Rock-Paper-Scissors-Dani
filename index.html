@@ -8,17 +8,71 @@
   <title>ULTIMATE ROCK PAPER SCISSORS</title>
 </head>
   <body>
+    <main class="instructions-page hidden">
+      <h1 class="instructions-title">INSTRUCTIONS</h1>
+      <span class="instructions">
+        <img class="instructions-fighter" src="./imageFolder/scissors.png" alt="scissors fighter">
+        <h2 class="greater-than-text">Scissors cuts paper</h2>
+        <img class="instructions-fighter" src="./imageFolder/paper.png" alt="paper fighter">
+      </span>
+      <span class="instructions">
+        <img class="instructions-fighter" src="./imageFolder/paper.png" alt="paper fighter">
+        <h2 class="greater-than-text">Paper covers rock</h2>
+        <img class="instructions-fighter" src="./imageFolder/rock.png" alt="rock fighter">
+      </span>
+      <span class="instructions">
+        <img class="instructions-fighter" src="./imageFolder/rock.png" alt="rock fighter">
+        <h2 class="greater-than-text">Rock crushes zombie</h2>
+        <img class="instructions-fighter" src="./imageFolder/zombie.png" alt="zombie fighter">
+      </span>
+      <span class="instructions">
+        <img class="instructions-fighter" src="./imageFolder/zombie.png" alt="zombie fighter">
+        <h2 class="greater-than-text">Zombie survives bomb</h2>
+        <img class="instructions-fighter" src="./imageFolder/bomb.png" alt="bomb fighter">
+      </span>
+      <span class="instructions">
+        <img class="instructions-fighter" src="./imageFolder/bomb.png" alt="bomb fighter">
+        <h2 class="greater-than-text">Bomb destroys scissors</h2>
+        <img class="instructions-fighter" src="./imageFolder/scissors.png" alt="scissors fighter">
+      </span>
+      <span class="instructions">
+        <img class="instructions-fighter" src="./imageFolder/scissors.png" alt="scissors fighter">
+        <h2 class="greater-than-text">Scissors decapitates zombie</h2>
+        <img class="instructions-fighter" src="./imageFolder/zombie.png" alt="zombie fighter">
+      </span>
+      <span class="instructions">
+        <img class="instructions-fighter" src="./imageFolder/zombie.png" alt="zombie fighter">
+        <h2 class="greater-than-text">Zombie eats paper</h2>
+        <img class="instructions-fighter" src="./imageFolder/paper.png" alt="paper fighter">
+      </span>
+      <span class="instructions">
+        <img class="instructions-fighter" src="./imageFolder/paper.png" alt="paper fighter">
+        <h2 class="greater-than-text">Paper warns about bomb</h2>
+        <img class="instructions-fighter" src="./imageFolder/bomb.png" alt="bomb fighter">
+      </span>
+      <span class="instructions">
+        <img class="instructions-fighter" src="./imageFolder/bomb.png" alt="bomb fighter">
+        <h2 class="greater-than-text">Bomb vaporizes rock</h2>
+        <img class="instructions-fighter" src="./imageFolder/rock.png" alt="rock fighter">
+      </span>
+      <span class="instructions">
+        <img class="instructions-fighter" src="./imageFolder/rock.png" alt="rock fighter">
+        <h2 class="greater-than-text">Rock crushes scissors</h2>
+        <img class="instructions-fighter" src="./imageFolder/scissors.png" alt="scissors fighter">
+      </span>
+      <button class="home" id="instructions-to-home-button">HOME</button>
+    </main>
     <main class="main-container">
       <section class="player-side hidden">
         <h2 id="player-name">Player</h2>
         <p id="player-token">Player 1</p>
         <h3>Number of Wins</h3>
         <p id="player-wins">0</p>
-        <h3 class="choice-display fade-in temporary-hidden" id="display-fighter-player-side">YOUR FIGHTER CHOICE</h2>
+        <h3 class="choice-display fade-in temporary-hidden" id="display-fighter-player-side">YOUR FIGHTER CHOICE GOES HERE</h2>
       </section>
       <section>
         <section class="main-view fade-in">
-          <h1><span class="rock-title">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title">SCISSORS</span></h1>
+          <h2><span class="rock-title">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title">SCISSORS</span></h2>
           <h3 class="subtitle hidden">Choose your game!</h3>
           <form class="form">
             <label class="inputs">ENTER PLAYER NAME<input id="player-input" type="text" required/></label>
@@ -33,11 +87,11 @@
             </div>
           </span>
           <button class="reset-game hidden">RESET</button>
+          <button class="go-instructions-button" id="instructions-button">INSTRUCTIONS</button>
         </section>
         <section class="classic-view hidden">
           <h1><span class="rock-title">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title">SCISSORS</span></h1>
           <h3 class="choose-fighter">Choose your fighter!</h3>
-          <p>Rock crushes scissors; paper covers rock; and scissors cuts paper!</p>
           <div class="fighter-container fade-in">
             <div class="fighter-background">
               <img class="rock fighter" id="rock" src="./imageFolder/rock.png" alt="rock fighter">
@@ -53,21 +107,11 @@
           <h1 class="player2-wins hidden">WINNER!</h1>
           <h1 class="player2-loses hidden">LOSER!</h1>
           <h1 class="tied hidden">TIE!</h1>
-          <button class="home" id='home-classic'>HOME</button>
+          <button class="home" id='home-from-classic'>HOME</button>
         </section>
         <section class="unique-view hidden">
           <h1><span class="rock-title">ROCK</span><span class="paper-title">PAPER</span><span class="scissors-title">SCISSORS</span></h1>
           <h3 class="choose-fighter fade-in">Choose your fighter!</h3>
-          <p class="instructions fade-in" id="instructions1"> Scissors cuts paper;
-            paper covers rock;
-            rock crushes zombie;
-            zombie survives bomb;
-            bomb destroys scissors;
-            scissors decapitates zombie;
-            zombie eats paper;
-            paper warns about bomb;
-            bomb vaporizes rock;
-            rock crushes scissors!</p>
           <div class="fighter-container fade-in">
             <div class="fighter-background">
               <img class="bomb fighter" src="./imageFolder/bomb.png" alt="bomb fighter">
@@ -86,7 +130,7 @@
             </div>
           </div>
           <img class="count-animation-unique fade-in hidden" id="unique-animation" src="./imageFolder/animation.gif" alt="rock paper scissors shoot!">
-          <button class="home">HOME</button>
+          <button class="home" id="home-from-unique">HOME</button>
         </section>
       </section>
       <section class="computer-side hidden">
@@ -94,7 +138,7 @@
         <p> Player 2 </p>
         <h3> Number of Wins </h3>
         <p id="computer-wins">0</p>
-        <h3 class="choice-display fade-in temporary-hidden" id="display-fighter-computer-side">COMPUTER FIGHTER CHOICE</h3>
+        <h3 class="choice-display fade-in temporary-hidden" id="display-fighter-computer-side">COMPUTER FIGHTER CHOICE GOES HERE</h3>
       </section>
     </main>
     <script src="src/game.js"></script>
