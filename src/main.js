@@ -121,22 +121,20 @@ function playClassicGame() {
   else if (event.target.classList.contains('scissors')) {
     outcome = gameData.playRoundClassic('scissors');
   }
-  if(outcome === 'Player one wins!') {
+  if (outcome === 'Player one wins!') {
     show(animationWinnerClassic);
   }
-  if (outcome === 'Player two wins!') {
+  else if (outcome === 'Player two wins!') {
     show(animationLoserClassic);
-  }
-  if (outcome === 'You tied!') {
+  } else {
     show(animationTieClassic);
   }
 
+  changeInnertext(outcomePlayerDisplay, player1.fighter.toUpperCase());
+  changeInnertext(outcomeComputerDisplay, player2.fighter.toUpperCase());
 
-  changeInnertext(outcomePlayerDisplay, outcome.toUpperCase());
-  changeInnertext(outcomeComputerDisplay, outcome.toUpperCase());
-
-  setTimeout(showTemporarily, 7300, outcomePlayerDisplay);
-  setTimeout(showTemporarily, 7300, outcomeComputerDisplay);
+  setTimeout(showTemporarily, 6100, outcomePlayerDisplay);
+  setTimeout(showTemporarily, 6100, outcomeComputerDisplay);
   setTimeout(changeWinCountDisplay, 7300);
   setTimeout(show, 7200, fightersClassic);
   setTimeout(hide, 7200, animationTieClassic);
@@ -166,21 +164,20 @@ function playUniqueGame() {
     outcome = gameData.playRoundUnique('bomb')
   }
 
-  if(outcome === 'Player one wins!') {
+  if (outcome === 'Player one wins!') {
     show(animationWinnerUnique);
   }
-  if (outcome === 'Player two wins!') {
+  else if (outcome === 'Player two wins!') {
     show(animationLoserUnique);
-  }
-  if (outcome === 'You tied!') {
+  } else {
     show(animationTieUnique);
   }
 
-  changeInnertext(outcomePlayerDisplay, outcome.toUpperCase());
-  changeInnertext(outcomeComputerDisplay, outcome.toUpperCase());
+  changeInnertext(outcomePlayerDisplay, player1.fighter.toUpperCase());
+  changeInnertext(outcomeComputerDisplay, player2.fighter.toUpperCase());
 
-  setTimeout(showTemporarily, 7300, outcomePlayerDisplay);
-  setTimeout(showTemporarily, 7300, outcomeComputerDisplay);
+  setTimeout(showTemporarily, 6100, outcomePlayerDisplay);
+  setTimeout(showTemporarily, 6100, outcomeComputerDisplay);
   setTimeout(changeWinCountDisplay, 7300);
   setTimeout(show, 7200, fightersUnique);
   setTimeout(hide, 7200, animationTieUnique);

@@ -3,48 +3,53 @@ class Player {
     this.name = name;
     this.token = token;
     this.wins = 0;
+    this.fighter = '';
   }
 
   takeTurn(fighter) {
-    return fighter;
+    this.fighter = fighter;
+    return this.fighter;
   }
 
   automatedTurnClassic() {
     var fighter = randomFighter(3,1);
     if(fighter === 1) {
-      return 'rock';
+      this.fighter = 'rock';
     }
     else if (fighter === 2) {
-      return 'paper';
+      this.fighter = 'paper';
     }
     else if (fighter === 3) {
-      return 'scissors';
+      this.fighter = 'scissors';
     }
+    return this.fighter;
   }
 
   automatedTurnUnique() {
     var fighter = randomFighter(5,1);
     if (fighter === 1) {
-      return 'rock';
+      this.fighter = 'rock';
     }
     else if (fighter === 2) {
-      return 'paper';
+      this.fighter = 'paper';
     }
     else if (fighter === 3) {
-      return 'scissors'
+      this.fighter = 'scissors'
     }
     else if (fighter === 4) {
-      return 'zombie'
+      this.fighter = 'zombie'
     }
     else if (fighter === 5) {
-      return 'bomb';
+      this.fighter = 'bomb';
     }
+    return this.fighter;
   }
 
   resetPayer(name, token,) {
     this.name = name;
     this.token = token;
     this.wins = 0;
+    this.fighter = '';
   }
 }
 

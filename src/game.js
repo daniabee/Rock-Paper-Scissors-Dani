@@ -1,3 +1,6 @@
+var player1Fighter = '';
+var player2Fighter = '';
+
 class Game {
   constructor() {
     this.players = [];
@@ -25,11 +28,9 @@ class Game {
   playRoundClassic(fighter) {
     this.gameCount++;
     this.gameCountClassic++;
-    var player1Fighter = this.players[0].takeTurn(fighter);
-    var player2Fighter = this.players[1].automatedTurnClassic();
+    player1Fighter = this.players[0].takeTurn(fighter);
+    player2Fighter = this.players[1].automatedTurnClassic();
     var outcome;
-    console.log('player 1', player1Fighter);
-    console.log('player 2', player2Fighter);
 
     if (player1Fighter === player2Fighter) {
       this.gameHistory.push(0);
@@ -71,8 +72,8 @@ class Game {
   playRoundUnique(fighter) {
     this.gameCount++;
     this.gameCountUnique++;
-    var player1Fighter = this.players[0].takeTurn(fighter);
-    var player2Fighter = this.players[1].automatedTurnUnique();
+    player1Fighter = this.players[0].takeTurn(fighter);
+    player2Fighter = this.players[1].automatedTurnUnique();
     var outcome;
 
     if (player1Fighter === player2Fighter) {
