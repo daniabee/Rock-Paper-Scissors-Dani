@@ -65,7 +65,7 @@ class Game {
       this.players[1].wins += 1;
       outcome = 'Player two wins!'
     }
-    return `It's ${player1Fighter} VS. ${player2Fighter}! ${outcome}!`;
+    return outcome;
   }
 
   playRoundUnique(fighter) {
@@ -179,7 +179,7 @@ class Game {
       this.players[1].wins += 1;
       outcome = 'Player two wins!'
     }
-    return `It's ${player1Fighter} VS. ${player2Fighter}! ${outcome}!`;
+    return outcome;
   }
 
   gameReset() {

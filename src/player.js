@@ -16,7 +16,8 @@ class Player {
     }
     else if (fighter === 2) {
       return 'paper';
-    } else {
+    }
+    else if (fighter === 3) {
       return 'scissors';
     }
   }
@@ -34,7 +35,8 @@ class Player {
     }
     else if (fighter === 4) {
       return 'zombie'
-    } else {
+    }
+    else if (fighter === 5) {
       return 'bomb';
     }
   }

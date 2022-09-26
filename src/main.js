@@ -17,8 +17,12 @@ var fightersClassic = document.querySelectorAll('.fighter-container')[0];
 var fightersUnique = document.querySelectorAll('.fighter-container')[1];
 var playerWinCount = document.querySelector('#player-wins');
 var computerWinCount = document.querySelector('#computer-wins');
-var animationCountClassic = document.querySelector('.count-animation-classic');
-var animationCountUnique = document.querySelector('.count-animation-unique');
+var animationLoserClassic = document.querySelector('#count-animation-loser-classic');
+var animationWinnerClassic = document.querySelector('#count-animation-winner-classic');
+var animationTieClassic = document.querySelector('#count-animation-tie-classic');
+var animationLoserUnique = document.querySelector('#count-animation-loser-unique');
+var animationWinnerUnique = document.querySelector('#count-animation-winner-unique');
+var animationTieUnique = document.querySelector('#count-animation-tie-unique');
 var outcomeComputerDisplay = document.querySelector('#display-fighter-computer-side');
 var outcomePlayerDisplay = document.querySelector('#display-fighter-player-side');
 var resetButton = document.querySelector('.reset-game');
@@ -106,7 +110,6 @@ function playClassicGame() {
   hideTemporarily(outcomePlayerDisplay);
   hideTemporarily(outcomeComputerDisplay);
   hide(fightersClassic);
-  show(animationCountClassic);
   var outcome;
 
   if (event.target.classList.contains('rock')) {
@@ -118,22 +121,33 @@ function playClassicGame() {
   else if (event.target.classList.contains('scissors')) {
     outcome = gameData.playRoundClassic('scissors');
   }
+  if(outcome === 'Player one wins!') {
+    show(animationWinnerClassic);
+  }
+  if (outcome === 'Player two wins!') {
+    show(animationLoserClassic);
+  }
+  if (outcome === 'You tied!') {
+    show(animationTieClassic);
+  }
+
 
   changeInnertext(outcomePlayerDisplay, outcome.toUpperCase());
   changeInnertext(outcomeComputerDisplay, outcome.toUpperCase());
 
-  setTimeout(showTemporarily, 5000, outcomePlayerDisplay);
-  setTimeout(showTemporarily, 5000, outcomeComputerDisplay);
-  setTimeout(changeWinCountDisplay, 5000);
-  setTimeout(show, 5100, fightersClassic);
-  setTimeout(hide, 5100, animationCountClassic);
+  setTimeout(showTemporarily, 7300, outcomePlayerDisplay);
+  setTimeout(showTemporarily, 7300, outcomeComputerDisplay);
+  setTimeout(changeWinCountDisplay, 7300);
+  setTimeout(show, 7200, fightersClassic);
+  setTimeout(hide, 7200, animationTieClassic);
+  setTimeout(hide, 7200, animationWinnerClassic);
+  setTimeout(hide, 7200, animationLoserClassic);
 }
 
 function playUniqueGame() {
   hideTemporarily(outcomePlayerDisplay);
   hideTemporarily(outcomeComputerDisplay);
   hide(fightersUnique);
-  show(animationCountUnique);
   var outcome;
 
   if (event.target.classList.contains('rock')) {
@@ -152,14 +166,26 @@ function playUniqueGame() {
     outcome = gameData.playRoundUnique('bomb')
   }
 
+  if(outcome === 'Player one wins!') {
+    show(animationWinnerUnique);
+  }
+  if (outcome === 'Player two wins!') {
+    show(animationLoserUnique);
+  }
+  if (outcome === 'You tied!') {
+    show(animationTieUnique);
+  }
+
   changeInnertext(outcomePlayerDisplay, outcome.toUpperCase());
   changeInnertext(outcomeComputerDisplay, outcome.toUpperCase());
 
-  setTimeout(showTemporarily, 5000, outcomePlayerDisplay);
-  setTimeout(showTemporarily, 5000, outcomeComputerDisplay);
-  setTimeout(changeWinCountDisplay, 5000);
-  setTimeout(show, 5100, fightersUnique);
-  setTimeout(hide, 5100, animationCountUnique);
+  setTimeout(showTemporarily, 7300, outcomePlayerDisplay);
+  setTimeout(showTemporarily, 7300, outcomeComputerDisplay);
+  setTimeout(changeWinCountDisplay, 7300);
+  setTimeout(show, 7200, fightersUnique);
+  setTimeout(hide, 7200, animationTieUnique);
+  setTimeout(hide, 7200, animationWinnerUnique);
+  setTimeout(hide, 7200, animationLoserUnique);
 }
 
 function resetGame() {
