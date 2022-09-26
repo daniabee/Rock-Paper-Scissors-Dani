@@ -140,6 +140,10 @@ p {
   box-shadow: 2px 2px 5px 5px rgb(251,0,82);
 }
 
+#home-from-unique {
+  margin-top: 0;
+}
+
 .reset-game {
   margin-top: 10%;
 }
@@ -194,7 +198,7 @@ p {
   align-items: center;
   flex-flow: row wrap;
   margin: 5%;
-  margin-bottom: 0;
+  margin-bottom: 15%;
 }
 
 #scissors {
@@ -229,9 +233,17 @@ p {
   margin: 3%;
 }
 
-.count-animation-classic,
-.count-animation-unique {
+.animation-win {
+  margin-bottom: 0;
+  height: 600px;
+  width: auto;
+  position: relative;
+}
+
+.animation-tie,
+.animation-lose {
   height: 400px;
+  margin-bottom: 20%;
   width: auto;
   position: relative;
 }
@@ -263,24 +275,16 @@ p {
 }
 
 .instructions-title {
-  font-size: 150pt;
+  font-size: 100pt;
 }
 
 .greater-than-text {
-  font-size: 100pt;
+  font-size: 50pt;
   text-align: center;
 }
 
 .instructions-text {
   text-align: center;
-}
-
-#instructions-to-home-button {
-  margin-bottom: 10%;
-  height: 150px;
-  width: 500px;
-  font-size: 40pt;
-  border-radius: 6pt;
 }
 
 .fade-in {
