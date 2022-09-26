@@ -11,8 +11,8 @@ var classicGameOption = document.querySelector('.classic-game');
 var mainView = document.querySelector('.main-view');
 var classicGameView = document.querySelector('.classic-view');
 var uniqueGameView = document.querySelector('.unique-view');
-var homeButton1 = document.querySelectorAll('.home')[0];
-var homeButton2 = document.querySelectorAll('.home')[1];
+var homeButtonClassic = document.querySelector('#home-from-classic');
+var homeButtonUnique= document.querySelector('#home-from-unique');
 var fightersClassic = document.querySelectorAll('.fighter-container')[0];
 var fightersUnique = document.querySelectorAll('.fighter-container')[1];
 var playerWinCount = document.querySelector('#player-wins');
@@ -22,7 +22,10 @@ var animationCountUnique = document.querySelector('.count-animation-unique');
 var outcomeComputerDisplay = document.querySelector('#display-fighter-computer-side');
 var outcomePlayerDisplay = document.querySelector('#display-fighter-player-side');
 var resetButton = document.querySelector('.reset-game');
-var instructionsUnique = document.querySelector('#instructions1');
+var instructionsButton = document.querySelector('#instructions-button');
+var instructionsPage = document.querySelector('.instructions-page');
+var mainPage = document.querySelector('.main-container');
+var instructionsToHome = document.querySelector('#instructions-to-home-button');
 
 //EVENT LISTENERS
 submitButton.addEventListener('click', submitPlayerInfo);
@@ -41,11 +44,13 @@ gameOptions.addEventListener('click', function(event) {
   }
 });
 
-homeButton1.addEventListener('click', goHomeView);
-homeButton2.addEventListener('click', goHomeView);
+homeButtonClassic.addEventListener('click', goHomeView);
+homeButtonUnique.addEventListener('click', goHomeView);
 fightersClassic.addEventListener('click', playClassicGame);
 fightersUnique.addEventListener('click', playUniqueGame);
 resetButton.addEventListener('click', resetGame);
+instructionsButton.addEventListener('click', viewInstructions);
+instructionsToHome.addEventListener('click', goHomeView);
 
 //FUNCTIONS
 function submitPlayerInfo() {
@@ -92,7 +97,9 @@ function goHomeView() {
   hideTemporarily(outcomeComputerDisplay);
   hide(classicGameView);
   hide(uniqueGameView);
+  hide(instructionsPage);
   show(mainView);
+  show(mainPage);
 }
 
 function playClassicGame() {
@@ -123,7 +130,6 @@ function playClassicGame() {
 }
 
 function playUniqueGame() {
-  hide(instructionsUnique);
   hideTemporarily(outcomePlayerDisplay);
   hideTemporarily(outcomeComputerDisplay);
   hide(fightersUnique);
@@ -152,7 +158,6 @@ function playUniqueGame() {
   setTimeout(showTemporarily, 5000, outcomePlayerDisplay);
   setTimeout(showTemporarily, 5000, outcomeComputerDisplay);
   setTimeout(changeWinCountDisplay, 5000);
-  setTimeout(show, 5100, instructionsUnique);
   setTimeout(show, 5100, fightersUnique);
   setTimeout(hide, 5100, animationCountUnique);
 }
@@ -167,6 +172,11 @@ function resetGame() {
   hide(subTitle);
   hide(resetButton);
   playerInput.value = '';
+}
+
+function viewInstructions() {
+  hide(mainPage);
+  show(instructionsPage);
 }
 
 function hide(element) {
