@@ -4,8 +4,8 @@ var playerInput = document.querySelector('#player-input');
 var playerName = document.querySelector('#player-name');
 var playerSide = document.querySelector('.player-side');
 var computerSide = document.querySelector('.computer-side');
-var subTitle = document.querySelector('.subtitle')
-var gameOptions = document.querySelector('.options')
+var subTitle = document.querySelector('.subtitle');
+var gameOptions = document.querySelector('.options');
 var uniqueGameOption = document.querySelector('.unique-game');
 var classicGameOption = document.querySelector('.classic-game');
 var mainView = document.querySelector('.main-view');
@@ -60,26 +60,22 @@ instructionsToHome.addEventListener('click', goHomeView);
 function submitPlayerInfo() {
   if (playerInput.value === '') {
     try {
-      throw new Error('Whoops! Add a name, please.');
-    } catch (e) {
+      throw new Error('Add a name, please.');
+    } catch(e) {
       console.error(`${e.name}: ${e.message}`);
     }
   } else {
     hide(playerForm);
+    hide(submitButton);
     show(playerSide);
     show(computerSide);
-    hide(submitButton);
-
-    player1.resetPayer(`${playerInput.value}`, 'Player 1')
-    player2.resetPayer('Computer', 'Player 2')
-    gameData.addPlayers(player1,player2);
-
-    changeInnertext(playerName, player1.name.toUpperCase())
-
     show(gameOptions);
     show(subTitle);
     show(resetButton);
-
+    player1.resetPayer(`${playerInput.value}`, 'Player 1');
+    player2.resetPayer('Computer', 'Player 2');
+    gameData.addPlayers(player1, player2);
+    changeInnertext(playerName, player1.name.toUpperCase());
     changeWinCountDisplay();
   }
 }
@@ -117,10 +113,10 @@ function playClassicGame() {
   }
   else if (event.target.classList.contains('paper')) {
     outcome = gameData.playRoundClassic('paper');
-  }
-  else if (event.target.classList.contains('scissors')) {
+  } else {
     outcome = gameData.playRoundClassic('scissors');
   }
+
   if (outcome === 'Player one wins!') {
     show(animationWinnerClassic);
   }
@@ -132,10 +128,9 @@ function playClassicGame() {
 
   changeInnertext(outcomePlayerDisplay, player1.fighter.toUpperCase());
   changeInnertext(outcomeComputerDisplay, player2.fighter.toUpperCase());
-
   setTimeout(showTemporarily, 6100, outcomePlayerDisplay);
   setTimeout(showTemporarily, 6100, outcomeComputerDisplay);
-  setTimeout(changeWinCountDisplay, 7300);
+  setTimeout(changeWinCountDisplay, 7200);
   setTimeout(show, 7200, fightersClassic);
   setTimeout(hide, 7200, animationTieClassic);
   setTimeout(hide, 7200, animationWinnerClassic);
@@ -159,8 +154,7 @@ function playUniqueGame() {
   }
   else if (event.target.classList.contains('zombie')) {
     outcome = gameData.playRoundUnique('zombie')
-  }
-  else if (event.target.classList.contains('bomb')) {
+  } else {
     outcome = gameData.playRoundUnique('bomb')
   }
 
@@ -175,10 +169,9 @@ function playUniqueGame() {
 
   changeInnertext(outcomePlayerDisplay, player1.fighter.toUpperCase());
   changeInnertext(outcomeComputerDisplay, player2.fighter.toUpperCase());
-
   setTimeout(showTemporarily, 6100, outcomePlayerDisplay);
   setTimeout(showTemporarily, 6100, outcomeComputerDisplay);
-  setTimeout(changeWinCountDisplay, 7300);
+  setTimeout(changeWinCountDisplay, 7200);
   setTimeout(show, 7200, fightersUnique);
   setTimeout(hide, 7200, animationTieUnique);
   setTimeout(hide, 7200, animationWinnerUnique);
@@ -188,9 +181,9 @@ function playUniqueGame() {
 function resetGame() {
   gameData.gameReset();
   show(playerForm);
+  show(submitButton);
   hide(playerSide);
   hide(computerSide);
-  show(submitButton);
   hide(gameOptions);
   hide(subTitle);
   hide(resetButton);
@@ -220,7 +213,7 @@ function show(element) {
 
 function changeWinCountDisplay() {
   changeInnertext(playerWinCount, gameData.players[0].wins);
-  changeInnertext(computerWinCount, gameData.players[1].wins)
+  changeInnertext(computerWinCount, gameData.players[1].wins);
 }
 
 function changeInnertext(elementChange, text) {

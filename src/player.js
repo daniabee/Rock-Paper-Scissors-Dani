@@ -12,21 +12,20 @@ class Player {
   }
 
   automatedTurnClassic() {
-    var fighter = randomFighter(3,1);
+    var fighter = randomFighter(3, 1);
     if(fighter === 1) {
       this.fighter = 'rock';
     }
     else if (fighter === 2) {
       this.fighter = 'paper';
-    }
-    else if (fighter === 3) {
+    } else {
       this.fighter = 'scissors';
     }
     return this.fighter;
   }
 
   automatedTurnUnique() {
-    var fighter = randomFighter(5,1);
+    var fighter = randomFighter(5, 1);
     if (fighter === 1) {
       this.fighter = 'rock';
     }
@@ -38,8 +37,7 @@ class Player {
     }
     else if (fighter === 4) {
       this.fighter = 'zombie'
-    }
-    else if (fighter === 5) {
+    } else {
       this.fighter = 'bomb';
     }
     return this.fighter;
