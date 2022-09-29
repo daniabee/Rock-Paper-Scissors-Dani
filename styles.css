@@ -51,7 +51,7 @@ p {
 .rock-title,
 .scissors-title,
 .paper-title {
-  font-size: 100pt;
+  font-size: 70pt;
   letter-spacing: 3px;
   position: relative;
 }
