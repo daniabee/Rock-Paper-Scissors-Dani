@@ -26,7 +26,7 @@ h1 {
   color: rgb(6,17,52);
   text-shadow: 10px 0 rgb(227,229,14);
   margin-top: 5%;
-  margin-bottom: 1%;
+  margin-bottom: 5%;
 }
 
 h2 {
@@ -51,7 +51,7 @@ p {
 .rock-title,
 .scissors-title,
 .paper-title {
-  font-size: 100pt;
+  font-size: 80pt;
   letter-spacing: 3px;
   position: relative;
 }
@@ -59,6 +59,11 @@ p {
 .paper-title {
   color: rgb(227,229,14);
   text-shadow: 10px 0 rgb(6,17,52);
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .main-container {
@@ -108,8 +113,6 @@ p {
 .home,
 .reset-game,
 .go-instructions-button {
-  margin-top: 5%;
-  margin-bottom: 5%;
   height: auto;
   width: auto;
   font-size: 25pt;
@@ -118,6 +121,12 @@ p {
   background-color: rgb(6,17,52);
   border: 0;
   border-radius: 3px;
+}
+
+.submit,
+.reset-game,
+.go-instructions-button {
+  margin-top: 5%;
 }
 
 .submit:hover,
@@ -151,6 +160,13 @@ p {
   background-color: rgb(213,168,240);
   width: 20vw;
   border-radius: 10pt;
+  text-align: center;
+}
+
+#player-name,
+#computer-name {
+  font-size: 30pt;
+  margin-top: 70%;
 }
 
 .options {
@@ -178,8 +194,8 @@ p {
   text-align: center;
   background-color: rgb(227,229,14);
   border-radius: 200pt/ 100pt;
-  width: 400px;
-  height: 200px;
+  width: 250px;
+  height: 125px;
 }
 
 .fighter-container {
@@ -187,8 +203,6 @@ p {
   justify-content: center;
   align-items: center;
   flex-flow: row wrap;
-  margin: 5%;
-  margin-bottom: 15%;
 }
 
 #scissors {
@@ -217,25 +231,25 @@ p {
   align-items: center;
   background-color: rgb(227,229,14);
   border: solid rgb(242,0,80);
-  border-radius: 175pt/ 80pt;
-  width: 350px;
-  height: 150px;
+  border-radius: 200pt/100pt;
+  width: 250px;
+  height: 125px;
   margin: 3%;
 }
 
 .animation-win {
-  margin-bottom: 0;
   height: 600px;
   width: auto;
   position: relative;
+  margin-top: -100px;
 }
 
 .animation-tie,
 .animation-lose {
   height: 400px;
-  margin-bottom: 20%;
   width: auto;
   position: relative;
+  margin-bottom: 150px;
 }
 
 .choice-display {
